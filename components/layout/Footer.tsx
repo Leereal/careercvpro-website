@@ -70,7 +70,9 @@ export function Footer() {
                 <Briefcase className="h-5 w-5 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-white">CareerCVPro</span>
+                <span className="text-xl font-bold text-white">
+                  CareerCVPro
+                </span>
                 <p className="text-xs text-gray-400">
                   Your Career, Our Priority
                 </p>

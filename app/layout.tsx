@@ -10,7 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "CareerCVPro - South Africa's Career Platform | Jobs & CV Services",
+    default:
+      "CareerCVPro - South Africa's Career Platform | Jobs & CV Services",
     template: "%s | CareerCVPro",
   },
   description:
