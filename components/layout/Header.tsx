@@ -27,6 +27,7 @@ import {
   HelpCircle,
   Sparkles,
   ArrowRight,
+  Linkedin,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -145,6 +146,12 @@ const navigation: NavItem[] = [
         href: "/cv-services/cover-letter-writing",
         description: "Compelling cover letters that get noticed",
         icon: <Mail className="h-5 w-5" />,
+      },
+      {
+        label: "LinkedIn Optimization",
+        href: "/cv-services/linkedin-optimization",
+        description: "Get found by recruiters on LinkedIn",
+        icon: <Linkedin className="h-5 w-5" />,
       },
     ],
   },

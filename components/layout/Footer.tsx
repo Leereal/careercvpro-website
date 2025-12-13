@@ -33,6 +33,10 @@ const footerLinks = {
       label: "Cover Letter Writing",
       href: "/cv-services/cover-letter-writing",
     },
+    {
+      label: "LinkedIn Optimization",
+      href: "/cv-services/linkedin-optimization",
+    },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
