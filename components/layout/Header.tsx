@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -223,13 +224,17 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-brand-teal to-brand-teal-dark flex items-center justify-center shadow-lg group-hover:shadow-brand-teal/30 transition-all duration-300">
-                <Briefcase className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-brand-gold rounded-full animate-pulse" />
+              <Image
+                src="/logo-black.png"
+                alt="CareerCVPro Logo"
+                width={48}
+                height={48}
+                className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg lg:text-xl font-bold bg-gradient-to-r from-brand-teal to-brand-teal-dark bg-clip-text text-transparent">
+              <span className="text-lg lg:text-xl font-bold bg-gradient-to-r from-brand-gold to-yellow-600 bg-clip-text text-transparent">
                 CareerCVPro
               </span>
               <span className="text-[10px] lg:text-xs text-muted-foreground -mt-1 hidden sm:block">

@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Briefcase,
   MapPin,
   Phone,
   Mail,
@@ -66,9 +66,13 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-teal to-brand-teal-dark flex items-center justify-center">
-                <Briefcase className="h-5 w-5 text-white" />
-              </div>
+              <Image
+                src="/logo-black.png"
+                alt="CareerCVPro Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <span className="text-xl font-bold text-white">
                   CareerCVPro
