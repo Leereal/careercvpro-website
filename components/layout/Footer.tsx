@@ -1,15 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-  MessageCircle,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, MessageCircle } from "lucide-react";
 
 const footerLinks = {
   jobs: [
@@ -88,39 +79,31 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="#"
-                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
+                href="https://www.facebook.com/careercvpro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-lg hover:bg-blue-600 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-4 w-4" />
               </a>
               <a
-                href="#"
-                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
-                aria-label="WhatsApp"
+                href="https://chat.whatsapp.com/LfmPek6TI8zCAgRhyP86T3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-lg hover:bg-green-600 transition-colors"
+                aria-label="WhatsApp Group"
               >
                 <MessageCircle className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/27749201395"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
+                aria-label="WhatsApp Direct"
+              >
+                <Phone className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -227,8 +210,13 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-brand-teal" />
-              <a href="tel:+27000000000" className="hover:text-white">
-                +27 00 000 0000
+              <a
+                href="https://wa.me/27749201395"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                +27 74 920 1395
               </a>
             </div>
           </div>
