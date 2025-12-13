@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,7 +34,6 @@ interface NavItem {
   label: string;
   href?: string;
   children?: NavChild[];
-  featured?: boolean;
 }
 
 interface NavChild {
@@ -127,7 +127,6 @@ const navigation: NavItem[] = [
   },
   {
     label: "CV Services",
-    featured: true,
     children: [
       {
         label: "CV Revamp",
@@ -154,10 +153,22 @@ const navigation: NavItem[] = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpandedItems, setMobileExpandedItems] = useState<string[]>([]);
+
+  // Helper to check if a nav item is active
+  const isNavItemActive = (item: NavItem): boolean => {
+    if (item.href) {
+      return pathname === item.href;
+    }
+    if (item.children) {
+      return item.children.some((child) => pathname.startsWith(child.href));
+    }
+    return false;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -260,7 +271,7 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                       "hover:bg-accent hover:text-accent-foreground",
-                      item.featured &&
+                      isNavItemActive(item) &&
                         "bg-brand-teal text-white hover:bg-brand-teal-dark hover:text-white"
                     )}
                   >
@@ -273,7 +284,7 @@ export function Header() {
                       "hover:bg-accent hover:text-accent-foreground",
                       activeDropdown === item.label &&
                         "bg-accent text-accent-foreground",
-                      item.featured &&
+                      isNavItemActive(item) &&
                         "bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white hover:from-brand-teal-dark hover:to-brand-teal hover:text-white"
                     )}
                   >
@@ -302,14 +313,6 @@ export function Header() {
                         "before:border-8 before:border-transparent before:border-b-card"
                       )}
                     >
-                      {item.featured && (
-                        <div className="px-3 py-2 mb-2 bg-gradient-to-r from-brand-teal/10 to-brand-gold/10 rounded-xl">
-                          <p className="text-xs font-medium text-brand-teal flex items-center gap-1">
-                            <Sparkles className="h-3 w-3" />
-                            Professional CV Services
-                          </p>
-                        </div>
-                      )}
                       <div className="space-y-1">
                         {item.children.map((child) => (
                           <Link
@@ -320,7 +323,7 @@ export function Header() {
                             <div
                               className={cn(
                                 "p-2 rounded-lg transition-colors",
-                                item.featured
+                                isNavItemActive(item)
                                   ? "bg-brand-teal/10 text-brand-teal group-hover/item:bg-brand-teal group-hover/item:text-white"
                                   : "bg-muted text-muted-foreground group-hover/item:bg-primary group-hover/item:text-primary-foreground"
                               )}
@@ -339,17 +342,6 @@ export function Header() {
                           </Link>
                         ))}
                       </div>
-                      {item.featured && (
-                        <div className="mt-2 pt-2 border-t border-border">
-                          <Link
-                            href="/cv-services"
-                            className="flex items-center justify-center gap-2 p-3 text-sm font-medium text-brand-teal hover:text-brand-teal-dark transition-colors"
-                          >
-                            View All Services
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </div>
-                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -420,11 +412,6 @@ export function Header() {
                           )}
                         >
                           <span className="flex items-center gap-2">
-                            {item.featured && (
-                              <span className="px-2 py-0.5 text-xs font-semibold bg-brand-gold/20 text-brand-gold rounded-full">
-                                PRO
-                              </span>
-                            )}
                             {item.label}
                           </span>
                           <ChevronDown
@@ -456,7 +443,7 @@ export function Header() {
                                       <div
                                         className={cn(
                                           "p-2 rounded-lg",
-                                          item.featured
+                                          isNavItemActive(item)
                                             ? "bg-brand-teal/10 text-brand-teal"
                                             : "bg-muted text-muted-foreground"
                                         )}
