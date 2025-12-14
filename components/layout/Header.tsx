@@ -103,7 +103,7 @@ const navigation: NavItem[] = [
       {
         label: "CV Samples",
         href: "/free-resources/cv-samples",
-        description: "Download free CV templates for any industry",
+        description: "CV templates for any industry",
         icon: <FileCheck className="h-5 w-5" />,
       },
       {
