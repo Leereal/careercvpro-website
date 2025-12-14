@@ -20,11 +20,9 @@ import {
   JobCard,
   JobFilters,
   ProvinceCard,
-  dummyJobs,
-  provinceData,
-  getJobCountByProvince,
 } from "@/components/jobs/JobListingComponents";
 import { JobAlertSignup } from "@/components/jobs/JobAlertSignup";
+import type { Job, Province, JobCategory } from "@/types/wordpress";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -39,44 +37,35 @@ const staggerContainer = {
   },
 };
 
-const categories = [
-  { name: "Security", icon: <Shield className="h-5 w-5 text-brand-teal" /> },
-  {
-    name: "Retail",
-    icon: <ShoppingCart className="h-5 w-5 text-brand-teal" />,
-  },
-  { name: "Call Centre", icon: <Phone className="h-5 w-5 text-brand-teal" /> },
-  { name: "Driving", icon: <Truck className="h-5 w-5 text-brand-teal" /> },
-  {
-    name: "Learnerships",
-    icon: <GraduationCap className="h-5 w-5 text-brand-teal" />,
-  },
-  {
-    name: "Government",
-    icon: <Building2 className="h-5 w-5 text-brand-teal" />,
-  },
-];
+// Category icons mapping
+const categoryIcons: Record<string, React.ReactNode> = {
+  security: <Shield className="h-5 w-5 text-brand-teal" />,
+  retail: <ShoppingCart className="h-5 w-5 text-brand-teal" />,
+  "call-centre": <Phone className="h-5 w-5 text-brand-teal" />,
+  driving: <Truck className="h-5 w-5 text-brand-teal" />,
+  learnership: <GraduationCap className="h-5 w-5 text-brand-teal" />,
+  learnerships: <GraduationCap className="h-5 w-5 text-brand-teal" />,
+  government: <Building2 className="h-5 w-5 text-brand-teal" />,
+};
 
-const provinces = [
-  "Gauteng",
-  "Western Cape",
-  "KwaZulu-Natal",
-  "Eastern Cape",
-  "Limpopo",
-  "Mpumalanga",
-  "North West",
-  "Free State",
-  "Northern Cape",
-];
+interface JobsPageClientProps {
+  initialJobs: Job[];
+  provinces: Province[];
+  categories: JobCategory[];
+}
 
-export default function JobsPage() {
+export default function JobsPageClient({
+  initialJobs,
+  provinces,
+  categories,
+}: JobsPageClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProvince, setSelectedProvince] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
 
   const filteredJobs = useMemo(() => {
-    return dummyJobs.filter((job) => {
+    return initialJobs.filter((job) => {
       const matchesSearch =
         !searchQuery ||
         job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -85,17 +74,25 @@ export default function JobsPage() {
 
       const matchesProvince =
         selectedProvince === "all" ||
+        job.provinceSlug === selectedProvince ||
         job.province.toLowerCase().replace(/\s+/g, "-") === selectedProvince;
 
       const matchesCategory =
         selectedCategory === "all" ||
+        job.categorySlug === selectedCategory ||
         job.category.toLowerCase().replace(/\s+/g, "-") === selectedCategory;
 
       const matchesType = selectedType === "all" || job.type === selectedType;
 
       return matchesSearch && matchesProvince && matchesCategory && matchesType;
     });
-  }, [searchQuery, selectedProvince, selectedCategory, selectedType]);
+  }, [
+    searchQuery,
+    selectedProvince,
+    selectedCategory,
+    selectedType,
+    initialJobs,
+  ]);
 
   const clearFilters = () => {
     setSearchQuery("");
@@ -104,8 +101,20 @@ export default function JobsPage() {
     setSelectedType("all");
   };
 
-  // Featured jobs (first 3)
-  const featuredJobs = dummyJobs.filter((job) => job.featured).slice(0, 3);
+  // Featured jobs
+  const featuredJobs = initialJobs.filter((job) => job.featured).slice(0, 3);
+
+  // Province names for filters
+  const provinceNames = provinces.map((p) => p.name);
+
+  // Category names for filters
+  const categoryNames = categories.map((c) => c.name);
+
+  // Get job count by province
+  const getJobCountByProvince = (provinceSlug: string): number => {
+    const province = provinces.find((p) => p.slug === provinceSlug);
+    return province?.count || 0;
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -125,7 +134,7 @@ export default function JobsPage() {
             <motion.div variants={fadeInUp} className="mb-6">
               <span className="inline-flex items-center gap-2 bg-brand-teal/20 text-brand-teal px-4 py-2 rounded-full text-sm font-medium">
                 <Briefcase className="h-4 w-4" />
-                {dummyJobs.length}+ Jobs Available
+                {initialJobs.length}+ Jobs Available
               </span>
             </motion.div>
 
@@ -173,8 +182,8 @@ export default function JobsPage() {
           <div className="lg:col-span-2">
             {/* Filters */}
             <JobFilters
-              provinces={provinces}
-              categories={categories.map((c) => c.name)}
+              provinces={provinceNames}
+              categories={categoryNames}
               selectedProvince={selectedProvince}
               selectedCategory={selectedCategory}
               selectedType={selectedType}
@@ -184,7 +193,7 @@ export default function JobsPage() {
               onTypeChange={setSelectedType}
               onSearchChange={setSearchQuery}
               onClearFilters={clearFilters}
-              totalJobs={dummyJobs.length}
+              totalJobs={initialJobs.length}
               filteredCount={filteredJobs.length}
             />
 
@@ -192,7 +201,8 @@ export default function JobsPage() {
             {selectedProvince === "all" &&
               selectedCategory === "all" &&
               selectedType === "all" &&
-              !searchQuery && (
+              !searchQuery &&
+              featuredJobs.length > 0 && (
                 <div className="mb-8">
                   <h2 className="text-xl font-bold text-brand-navy mb-4 flex items-center gap-2">
                     <span className="text-brand-gold">★</span> Featured Jobs
@@ -262,7 +272,7 @@ export default function JobsPage() {
                 Jobs by Province
               </h3>
               <div className="space-y-2">
-                {provinceData.map((province) => (
+                {provinces.map((province) => (
                   <Link
                     key={province.slug}
                     href={`/jobs/${province.slug}`}
@@ -272,7 +282,7 @@ export default function JobsPage() {
                       {province.name}
                     </span>
                     <span className="text-sm text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
-                      {getJobCountByProvince(province.slug)} jobs
+                      {province.count} jobs
                     </span>
                   </Link>
                 ))}
@@ -293,20 +303,19 @@ export default function JobsPage() {
                 Popular Categories
               </h3>
               <div className="space-y-2">
-                {categories.map((cat) => (
+                {categories.slice(0, 6).map((cat) => (
                   <button
-                    key={cat.name}
-                    onClick={() =>
-                      setSelectedCategory(
-                        cat.name.toLowerCase().replace(/\s+/g, "-")
-                      )
-                    }
+                    key={cat.slug}
+                    onClick={() => setSelectedCategory(cat.slug)}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left group"
                   >
-                    {cat.icon}
-                    <span className="text-gray-700 group-hover:text-brand-teal transition-colors">
+                    {categoryIcons[cat.slug] || (
+                      <Briefcase className="h-5 w-5 text-brand-teal" />
+                    )}
+                    <span className="text-gray-700 group-hover:text-brand-teal transition-colors flex-1">
                       {cat.name}
                     </span>
+                    <span className="text-sm text-gray-400">{cat.count}</span>
                   </button>
                 ))}
               </div>
@@ -353,13 +362,13 @@ export default function JobsPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {provinceData.map((province) => (
+            {provinces.map((province) => (
               <ProvinceCard
                 key={province.slug}
                 name={province.name}
                 slug={province.slug}
-                jobCount={getJobCountByProvince(province.slug)}
-                cities={province.cities}
+                jobCount={province.count}
+                cities={province.cities.map((c) => c.name)}
               />
             ))}
           </div>

@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.careercvpro.co.za"),
   title: {
     default:
       "CareerCVPro - South Africa's Career Platform | Jobs & CV Services",

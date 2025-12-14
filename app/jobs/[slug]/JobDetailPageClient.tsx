@@ -1,11 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   MapPin,
-  Briefcase,
   Building2,
   ArrowLeft,
   Clock,
@@ -16,8 +14,10 @@ import {
   Share2,
   Bookmark,
   AlertCircle,
+  ExternalLink,
+  Calendar,
 } from "lucide-react";
-import { dummyJobs, Job } from "@/components/jobs/JobListingComponents";
+import type { Job } from "@/types/wordpress";
 import { JobAlertSignup } from "@/components/jobs/JobAlertSignup";
 
 const fadeInUp = {
@@ -25,40 +25,17 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
 interface JobDetailPageClientProps {
-  jobId: string;
+  job: Job | null;
+  relatedJobs?: Job[];
 }
 
 const whatsappNumber = "27749201395";
 
 export default function JobDetailPageClient({
-  jobId,
+  job,
+  relatedJobs = [],
 }: JobDetailPageClientProps) {
-  // Find the job
-  const job = useMemo(() => {
-    return dummyJobs.find((j) => j.id === jobId);
-  }, [jobId]);
-
-  // Related jobs (same category or province)
-  const relatedJobs = useMemo(() => {
-    if (!job) return [];
-    return dummyJobs
-      .filter(
-        (j) =>
-          j.id !== jobId &&
-          (j.category === job.category || j.province === job.province)
-      )
-      .slice(0, 3);
-  }, [job, jobId]);
-
   const daysAgo = job
     ? Math.floor(
         (Date.now() - new Date(job.postedDate).getTime()) /
@@ -92,9 +69,32 @@ export default function JobDetailPageClient({
     );
   }
 
-  const whatsappMessage = encodeURIComponent(
-    `Hi! I'm interested in the ${job.title} position at ${job.company} (Job ID: ${job.id}). Can you help me apply?`
+  // Use job's WhatsApp number if available, otherwise fall back to default
+  const jobWhatsappNumber = job.whatsapp || whatsappNumber;
+
+  // Different WhatsApp messages based on whether there's an external apply URL
+  const whatsappMessageWithUrl = encodeURIComponent(
+    `Hi! I'm applying for the ${job.title} position at ${job.company}. I'd like help with my CV to make it stand out for this role. Can you assist?`
   );
+  const whatsappMessageNoUrl = encodeURIComponent(
+    `Hi! I'm interested in the ${job.title} position at ${job.company}. Can you help me with the application process?`
+  );
+
+  // Format deadline if available
+  const formatDeadline = (deadline: string | null | undefined) => {
+    if (!deadline) return null;
+    try {
+      const date = new Date(deadline);
+      return date.toLocaleDateString("en-ZA", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    } catch {
+      return deadline;
+    }
+  };
+  const formattedDeadline = formatDeadline(job.deadline);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -159,6 +159,12 @@ export default function JobDetailPageClient({
                   : `${daysAgo} days ago`}
               </span>
             </div>
+            {formattedDeadline && (
+              <div className="flex items-center gap-2 text-red-500">
+                <Calendar className="h-5 w-5" />
+                <span>Closes: {formattedDeadline}</span>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -178,28 +184,49 @@ export default function JobDetailPageClient({
               <h2 className="text-xl font-bold text-brand-navy mb-4">
                 Job Description
               </h2>
-              <p className="text-gray-600 leading-relaxed">{job.description}</p>
+              {job.descriptionHtml ? (
+                <div
+                  className="prose prose-gray max-w-none
+                    prose-headings:text-brand-navy prose-headings:font-semibold
+                    prose-h2:text-xl prose-h2:mt-6 prose-h2:mb-3
+                    prose-h3:text-lg prose-h3:mt-5 prose-h3:mb-2
+                    prose-h4:text-base prose-h4:mt-4 prose-h4:mb-2
+                    prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-4
+                    prose-ul:my-3 prose-ul:list-disc prose-ul:pl-5
+                    prose-ol:my-3 prose-ol:list-decimal prose-ol:pl-5
+                    prose-li:text-gray-600 prose-li:mb-1.5
+                    prose-strong:text-brand-navy prose-strong:font-semibold
+                    prose-a:text-brand-teal prose-a:hover:underline"
+                  dangerouslySetInnerHTML={{ __html: job.descriptionHtml }}
+                />
+              ) : (
+                <p className="text-gray-600 leading-relaxed">
+                  {job.description}
+                </p>
+              )}
             </motion.div>
 
-            {/* Requirements */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUp}
-              className="bg-white rounded-xl border border-gray-200 p-6"
-            >
-              <h2 className="text-xl font-bold text-brand-navy mb-4">
-                Requirements
-              </h2>
-              <ul className="space-y-3">
-                {job.requirements.map((req, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600">{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            {/* Requirements - only show if we have them and no HTML description */}
+            {job.requirements.length > 0 && !job.descriptionHtml && (
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                className="bg-white rounded-xl border border-gray-200 p-6"
+              >
+                <h2 className="text-xl font-bold text-brand-navy mb-4">
+                  Requirements
+                </h2>
+                <ul className="space-y-3">
+                  {job.requirements.map((req, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-600">{req}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
 
             {/* How to Apply */}
             <motion.div
@@ -209,28 +236,65 @@ export default function JobDetailPageClient({
               className="bg-gradient-to-br from-brand-navy to-brand-navy-light rounded-xl p-6 text-white"
             >
               <h2 className="text-xl font-bold mb-4">How to Apply</h2>
-              <p className="text-gray-300 mb-6">
-                Ready to apply for this position? Contact us via WhatsApp and
-                we'll help you submit your application. Make sure you have your
-                CV ready!
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
-                >
-                  <MessageSquare className="h-5 w-5" />
-                  Apply via WhatsApp
-                </a>
-                <Link
-                  href="/cv-services"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-medium transition-colors border border-white/20"
-                >
-                  Need a CV? Get one for R80
-                </Link>
-              </div>
+              {job.applyUrl ? (
+                <>
+                  <p className="text-gray-300 mb-6">
+                    Click the button below to apply directly on the employer's
+                    website. Need a standout CV for this role? We can help you
+                    revamp it!
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href={job.applyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-teal-dark text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                      Apply on Company Website
+                    </a>
+                    <a
+                      href={`https://wa.me/${jobWhatsappNumber}?text=${whatsappMessageWithUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+                    >
+                      <MessageSquare className="h-5 w-5" />
+                      Get CV Help via WhatsApp
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-gray-300 mb-6">
+                    Contact us via WhatsApp and we'll help you with the
+                    application process. Make sure you have your CV ready!
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href={`https://wa.me/${jobWhatsappNumber}?text=${whatsappMessageNoUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+                    >
+                      <MessageSquare className="h-5 w-5" />
+                      Get Application Info via WhatsApp
+                    </a>
+                    <Link
+                      href="/cv-services"
+                      className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-medium transition-colors border border-white/20"
+                    >
+                      Need a CV? Get one for R80
+                    </Link>
+                  </div>
+                </>
+              )}
+              {formattedDeadline && (
+                <p className="mt-4 text-yellow-300 text-sm flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  Application deadline: {formattedDeadline}
+                </p>
+              )}
             </motion.div>
 
             {/* Related Jobs */}
@@ -247,7 +311,7 @@ export default function JobDetailPageClient({
                   {relatedJobs.map((relJob) => (
                     <Link
                       key={relJob.id}
-                      href={`/jobs/${relJob.id}`}
+                      href={`/jobs/${relJob.slug || relJob.id}`}
                       className="block bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md hover:border-brand-teal transition-all"
                     >
                       <div className="flex justify-between items-start">
@@ -278,15 +342,38 @@ export default function JobDetailPageClient({
                 Interested in this job?
               </h3>
 
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors mb-3"
-              >
-                <MessageSquare className="h-5 w-5" />
-                Apply Now
-              </a>
+              {job.applyUrl ? (
+                <>
+                  <a
+                    href={job.applyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-teal-dark text-white px-6 py-3 rounded-xl font-semibold transition-colors mb-3"
+                  >
+                    <ExternalLink className="h-5 w-5" />
+                    Apply Now
+                  </a>
+                  <a
+                    href={`https://wa.me/${jobWhatsappNumber}?text=${whatsappMessageWithUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl font-medium text-sm transition-colors mb-3"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    Need CV Help? WhatsApp Us
+                  </a>
+                </>
+              ) : (
+                <a
+                  href={`https://wa.me/${jobWhatsappNumber}?text=${whatsappMessageNoUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors mb-3"
+                >
+                  <MessageSquare className="h-5 w-5" />
+                  Get Application Info
+                </a>
+              )}
 
               <div className="flex gap-2">
                 <button className="flex-1 inline-flex items-center justify-center gap-2 border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-2 rounded-lg text-sm transition-colors">
@@ -325,6 +412,14 @@ export default function JobDetailPageClient({
                     <span className="text-gray-500">Salary</span>
                     <span className="font-medium text-brand-navy">
                       {job.salary}
+                    </span>
+                  </div>
+                )}
+                {formattedDeadline && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Deadline</span>
+                    <span className="font-medium text-red-500">
+                      {formattedDeadline}
                     </span>
                   </div>
                 )}

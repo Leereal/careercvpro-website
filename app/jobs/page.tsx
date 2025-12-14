@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import JobsPageClient from "./page.client";
+import { getAllJobs, getProvinces, getJobCategories } from "@/lib/wordpress";
 
 export const metadata: Metadata = {
   title: "Jobs in South Africa | Find Employment Opportunities | CareerCVPro",
@@ -31,6 +32,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function JobsPage() {
-  return <JobsPageClient />;
+export default async function JobsPage() {
+  // Fetch data from WordPress
+  let jobs: Awaited<ReturnType<typeof getAllJobs>>["jobs"] = [];
+  let provinces: Awaited<ReturnType<typeof getProvinces>> = [];
+  let categories: Awaited<ReturnType<typeof getJobCategories>> = [];
+
+  try {
+    const [jobsResult, provincesResult, categoriesResult] = await Promise.all([
+      getAllJobs({ first: 100 }),
+      getProvinces(),
+      getJobCategories(),
+    ]);
+
+    jobs = jobsResult.jobs;
+    provinces = provincesResult;
+    categories = categoriesResult;
+  } catch (error) {
+    console.error("Failed to fetch from WordPress:", error);
+    // Jobs will be empty, client shows "no jobs" state
+  }
+
+  return (
+    <JobsPageClient
+      initialJobs={jobs}
+      provinces={provinces}
+      categories={categories}
+    />
+  );
 }

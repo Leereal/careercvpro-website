@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
+import { getAllJobs } from "@/lib/wordpress";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.careercvpro.co.za";
 
   // Static pages with their priorities and change frequencies
@@ -111,6 +112,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "daily" as const,
   }));
 
+  // City-specific job pages (pSEO)
+  const cityPages = [
+    "johannesburg",
+    "cape-town",
+    "durban",
+    "pretoria",
+    "port-elizabeth",
+    "bloemfontein",
+    "east-london",
+    "polokwane",
+    "nelspruit",
+    "kimberley",
+    "pietermaritzburg",
+    "rustenburg",
+    "george",
+    "soweto",
+    "sandton",
+    "midrand",
+    "centurion",
+    "roodepoort",
+    "benoni",
+    "boksburg",
+  ].map((city) => ({
+    url: `/jobs/${city}`,
+    priority: 0.85,
+    changeFrequency: "daily" as const,
+  }));
+
+  // Category + Location combination pages (pSEO)
+  const categories = [
+    "security",
+    "retail",
+    "call-centre",
+    "admin",
+    "driver",
+    "government",
+    "learnerships",
+    "internships",
+    "it",
+    "engineering",
+    "finance",
+    "hospitality",
+    "healthcare",
+    "sales",
+    "marketing",
+  ];
+
+  const locations = [
+    "gauteng",
+    "western-cape",
+    "kwazulu-natal",
+    "eastern-cape",
+    "johannesburg",
+    "cape-town",
+    "durban",
+    "pretoria",
+  ];
+
+  const categoryLocationPages = categories.flatMap((category) =>
+    locations.map((location) => ({
+      url: `/jobs/${category}-jobs-in-${location}`,
+      priority: 0.75,
+      changeFrequency: "daily" as const,
+    }))
+  );
+
   // Category-specific job pages (for future expansion)
   const categoryPages = [
     "security-jobs",
@@ -127,14 +194,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "daily" as const,
   }));
 
+  // Fetch dynamic job pages from WordPress
+  let jobPages: Array<{
+    url: string;
+    priority: number;
+    changeFrequency: "daily" | "weekly";
+    lastModified?: Date;
+  }> = [];
+
+  try {
+    const { jobs } = await getAllJobs({ first: 500 });
+    jobPages = jobs.map((job) => ({
+      url: `/jobs/${job.slug}`,
+      priority: 0.7,
+      changeFrequency: "weekly" as const,
+      lastModified: new Date(job.postedDate),
+    }));
+  } catch (error) {
+    console.error("Failed to fetch jobs for sitemap:", error);
+    // Continue without job pages
+  }
+
   // Combine all pages
-  const allPages = [...staticPages, ...provincePages, ...categoryPages];
+  const allPages = [
+    ...staticPages,
+    ...provincePages,
+    ...cityPages,
+    ...categoryLocationPages,
+    ...categoryPages,
+  ];
 
   // Generate sitemap entries
-  return allPages.map((page) => ({
+  const staticEntries = allPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
     lastModified: new Date(),
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
+
+  // Add job entries with their specific lastModified dates
+  const jobEntries = jobPages.map((page) => ({
+    url: `${baseUrl}${page.url}`,
+    lastModified: page.lastModified || new Date(),
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
+
+  return [...staticEntries, ...jobEntries];
 }

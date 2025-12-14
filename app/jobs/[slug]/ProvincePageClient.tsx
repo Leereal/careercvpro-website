@@ -11,13 +11,9 @@ import {
   TrendingUp,
   ArrowRight,
 } from "lucide-react";
-import {
-  JobCard,
-  JobFilters,
-  dummyJobs,
-  provinceData,
-} from "@/components/jobs/JobListingComponents";
+import { JobCard, JobFilters } from "@/components/jobs/JobListingComponents";
 import { JobAlertSignup } from "@/components/jobs/JobAlertSignup";
+import type { Job } from "@/types/wordpress";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -38,6 +34,7 @@ interface ProvincePageClientProps {
   capital: string;
   description: string;
   cities: string[];
+  initialJobs?: Job[];
 }
 
 const categories = [
@@ -54,25 +51,45 @@ const categories = [
   "Hospitality",
 ];
 
+// Static province data for the sidebar
+const provinceList = [
+  { slug: "gauteng", name: "Gauteng" },
+  { slug: "western-cape", name: "Western Cape" },
+  { slug: "kwazulu-natal", name: "KwaZulu-Natal" },
+  { slug: "eastern-cape", name: "Eastern Cape" },
+  { slug: "limpopo", name: "Limpopo" },
+  { slug: "mpumalanga", name: "Mpumalanga" },
+  { slug: "north-west", name: "North West" },
+  { slug: "free-state", name: "Free State" },
+  { slug: "northern-cape", name: "Northern Cape" },
+];
+
+// Popular category combos for internal linking (pSEO)
+const categoryComboLinks = [
+  { slug: "security", name: "Security Jobs" },
+  { slug: "retail", name: "Retail Jobs" },
+  { slug: "call-centre", name: "Call Centre Jobs" },
+  { slug: "admin", name: "Admin Jobs" },
+  { slug: "it", name: "IT Jobs" },
+  { slug: "driving", name: "Driver Jobs" },
+  { slug: "government", name: "Government Jobs" },
+  { slug: "healthcare", name: "Healthcare Jobs" },
+];
+
 export default function ProvincePageClient({
   province,
   provinceName,
   capital,
   description,
   cities,
+  initialJobs = [],
 }: ProvincePageClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
 
-  // Get jobs for this province
-  const provinceJobs = useMemo(() => {
-    return dummyJobs.filter(
-      (job) =>
-        job.province.toLowerCase().replace(/\s+/g, "-") ===
-        province.toLowerCase()
-    );
-  }, [province]);
+  // Use jobs passed from server
+  const provinceJobs = initialJobs;
 
   // Apply additional filters
   const filteredJobs = useMemo(() => {
@@ -85,6 +102,7 @@ export default function ProvincePageClient({
 
       const matchesCategory =
         selectedCategory === "all" ||
+        job.categorySlug === selectedCategory ||
         job.category.toLowerCase().replace(/\s+/g, "-") === selectedCategory;
 
       const matchesType = selectedType === "all" || job.type === selectedType;
@@ -100,7 +118,7 @@ export default function ProvincePageClient({
   };
 
   // Other provinces for sidebar
-  const otherProvinces = provinceData.filter((p) => p.slug !== province);
+  const otherProvinces = provinceList.filter((p) => p.slug !== province);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -270,6 +288,28 @@ export default function ProvincePageClient({
           <div className="lg:col-span-1 space-y-6">
             {/* Job Alerts */}
             <JobAlertSignup defaultProvince={province} />
+
+            {/* Popular Job Categories in this Province (Internal Linking) */}
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-brand-teal" />
+                Popular in {provinceName}
+              </h3>
+              <div className="space-y-2">
+                {categoryComboLinks.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    href={`/jobs/${cat.slug}-jobs-in-${province}`}
+                    className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                  >
+                    <span className="text-gray-700 group-hover:text-brand-teal transition-colors">
+                      {cat.name} in {provinceName}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-brand-teal transition-colors" />
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             {/* Other Provinces */}
             <div className="bg-white rounded-xl border border-gray-200 p-6">

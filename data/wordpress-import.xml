@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:wp="http://wordpress.org/export/1.2/">
+
+<channel>
+    <title>CareerCVPro Jobs Import</title>
+    <link>https://careercvpro.co.za</link>
+    <description>Jobs import for CareerCVPro</description>
+    <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+    <language>en-ZA</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:base_site_url>https://careercvpro.co.za</wp:base_site_url>
+    <wp:base_blog_url>https://careercvpro.co.za</wp:base_blog_url>
+
+    <!-- ============================================ -->
+    <!-- TAXONOMIES - Location (Provinces & Cities)  -->
+    <!-- ============================================ -->
+    
+    <!-- Province: Gauteng (Parent) -->
+    <wp:term>
+        <wp:term_id>1</wp:term_id>
+        <wp:term_taxonomy>location</wp:term_taxonomy>
+        <wp:term_slug>gauteng</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Gauteng]]></wp:term_name>
+    </wp:term>
+    
+    <!-- City: Johannesburg (Child of Gauteng) -->
+    <wp:term>
+        <wp:term_id>2</wp:term_id>
+        <wp:term_taxonomy>location</wp:term_taxonomy>
+        <wp:term_slug>johannesburg</wp:term_slug>
+        <wp:term_parent>gauteng</wp:term_parent>
+        <wp:term_name><![CDATA[Johannesburg]]></wp:term_name>
+    </wp:term>
+
+    <!-- ============================================ -->
+    <!-- TAXONOMIES - Job Categories                 -->
+    <!-- ============================================ -->
+    
+    <wp:term>
+        <wp:term_id>10</wp:term_id>
+        <wp:term_taxonomy>job_category</wp:term_taxonomy>
+        <wp:term_slug>marketing</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Marketing]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>11</wp:term_id>
+        <wp:term_taxonomy>job_category</wp:term_taxonomy>
+        <wp:term_slug>it</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[IT]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>12</wp:term_id>
+        <wp:term_taxonomy>job_category</wp:term_taxonomy>
+        <wp:term_slug>call-centre</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Call Centre]]></wp:term_name>
+    </wp:term>
+
+    <!-- ============================================ -->
+    <!-- TAXONOMIES - Job Types                      -->
+    <!-- ============================================ -->
+    
+    <wp:term>
+        <wp:term_id>20</wp:term_id>
+        <wp:term_taxonomy>job_type</wp:term_taxonomy>
+        <wp:term_slug>internship</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Internship]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>21</wp:term_id>
+        <wp:term_taxonomy>job_type</wp:term_taxonomy>
+        <wp:term_slug>full-time</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Full-time]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>22</wp:term_id>
+        <wp:term_taxonomy>job_type</wp:term_taxonomy>
+        <wp:term_slug>remote</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Remote]]></wp:term_name>
+    </wp:term>
+
+    <!-- ============================================ -->
+    <!-- JOB 1: Social Media & Label Support Intern  -->
+    <!-- ============================================ -->
+    
+    <item>
+        <title><![CDATA[Social Media & Label Support Intern (Afro House)]]></title>
+        <link>https://careercvpro.co.za/jobs/social-media-label-support-intern-afro-house</link>
+        <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1001</guid>
+        <description></description>
+        <content:encoded><![CDATA[
+<h2>Internship Opportunity: Social Media & Label Support Intern (Afro House)</h2>
+
+<p>Xpressed Records is offering a part-time internship opportunity for a motivated 1st or 2nd year university student based in Johannesburg who is passionate about Afro House music and culture and interested in learning how an independent record label operates. This role is learning-focused and intended to provide practical exposure to the music industry.</p>
+
+<h3>Role Overview</h3>
+<p>The intern will assist the Xpressed Records team with basic support tasks across social media, administration, and general label operations, under guidance and supervision.</p>
+
+<h3>Key Learning & Support Areas</h3>
+<ul>
+    <li>Assisting with social media coordination (posting, scheduling, content organisation)</li>
+    <li>Supporting administrative and organisational tasks</li>
+    <li>Exposure to music releases, artist communication, and label workflows</li>
+    <li>Assisting with events and activations when required (optional and scheduled in advance)</li>
+</ul>
+
+<h3>Who We're Looking For</h3>
+<ul>
+    <li>A registered student (1st or 2nd year at a university or college)</li>
+    <li>Strong organisation and time-management skills</li>
+    <li>Genuine interest in Afro House music & culture</li>
+    <li>Basic familiarity with social media platforms</li>
+    <li>Willingness to learn in a creative, fast-growing environment</li>
+</ul>
+
+<h3>Internship Details</h3>
+<ul>
+    <li><strong>Time commitment:</strong> Up to 20 hours per week, with flexible scheduling to accommodate academic commitments</li>
+    <li><strong>Duration:</strong> Internship-based (12 months)</li>
+    <li><strong>Compensation:</strong> Stipend provided</li>
+</ul>
+
+<h3>What the Intern Will Gain</h3>
+<ul>
+    <li>Hands-on experience working on real music projects with real artists</li>
+    <li>Practical insight into label operations, releases, and artist development</li>
+    <li>Mentorship and guidance from an active independent label</li>
+    <li>Access to Xpressed Records events</li>
+    <li>Label merchandise and cultural exposure within the Afro House space</li>
+</ul>
+
+<h3>Growth & Progression</h3>
+<p>There may be opportunities for extended involvement or increased responsibility based on performance, availability, and the growth of the label.</p>
+        ]]></content:encoded>
+        <excerpt:encoded><![CDATA[Xpressed Records is offering a part-time internship opportunity for a motivated 1st or 2nd year university student based in Johannesburg who is passionate about Afro House music and culture.]]></excerpt:encoded>
+        <wp:post_id>1001</wp:post_id>
+        <wp:post_date>2024-12-14 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2024-12-14 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2024-12-14 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2024-12-14 00:00:00</wp:post_modified_gmt>
+        <wp:comment_status>closed</wp:comment_status>
+        <wp:ping_status>closed</wp:ping_status>
+        <wp:post_name>social-media-label-support-intern-afro-house</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_parent>0</wp:post_parent>
+        <wp:menu_order>0</wp:menu_order>
+        <wp:post_type>job</wp:post_type>
+        <wp:post_password></wp:post_password>
+        <wp:is_sticky>0</wp:is_sticky>
+        
+        <!-- Taxonomy: Location (City - child of Province) -->
+        <category domain="location" nicename="johannesburg"><![CDATA[Johannesburg]]></category>
+        <category domain="location" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        
+        <!-- Taxonomy: Job Category -->
+        <category domain="job_category" nicename="marketing"><![CDATA[Marketing]]></category>
+        
+        <!-- Taxonomy: Job Type -->
+        <category domain="job_type" nicename="internship"><![CDATA[Internship]]></category>
+        
+        <!-- ACF Custom Fields -->
+        <wp:postmeta>
+            <wp:meta_key>company_name</wp:meta_key>
+            <wp:meta_value><![CDATA[Xpressed Records]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_company_name</wp:meta_key>
+            <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>location</wp:meta_key>
+            <wp:meta_value><![CDATA[City of Johannesburg, Gauteng, South Africa]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_location</wp:meta_key>
+            <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>salary_range</wp:meta_key>
+            <wp:meta_value><![CDATA[Stipend]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_salary_range</wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>is_featured</wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_is_featured</wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>is_urgent</wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_is_urgent</wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
+        </wp:postmeta>
+
+        <!-- Requirements as serialized array -->
+        <wp:postmeta>
+            <wp:meta_key>requirements</wp:meta_key>
+            <wp:meta_value><![CDATA[a:5:{i:0;a:1:{s:11:"requirement";s:52:"Registered student (1st or 2nd year at university)";}i:1;a:1:{s:11:"requirement";s:40:"Strong organisation and time-management";}i:2;a:1:{s:11:"requirement";s:40:"Genuine interest in Afro House music";}i:3;a:1:{s:11:"requirement";s:40:"Basic familiarity with social media";}i:4;a:1:{s:11:"requirement";s:35:"Willingness to learn";}}]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_requirements</wp:meta_key>
+            <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
+        </wp:postmeta>
+    </item>
+
+    <!-- ============================================ -->
+    <!-- JOB 2: Customer Technical Support           -->
+    <!-- ============================================ -->
+    
+    <item>
+        <title><![CDATA[Customer Technical Support]]></title>
+        <link>https://careercvpro.co.za/jobs/customer-technical-support-cherry-assistant</link>
+        <pubDate>Fri, 13 Dec 2024 00:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1002</guid>
+        <description></description>
+        <content:encoded><![CDATA[
+<p>We are hiring a Customer Technical Support to support a field-service and workflow SaaS platform serving service-based businesses.</p>
+
+<p>This is a full-time remote role in a fast-paced, product-driven SaaS environment. The ideal candidate is technically sharp, detail-oriented, calm under pressure, and highly professional, with hands-on experience supporting web-based applications and GoHighLevel users. This role goes beyond basic support. You will be responsible for learning the platform in depth, assisting customers with setup, and troubleshooting real technical and usage issues across workflows, automations, and integrations.</p>
+
+<h3>Key Responsibilities</h3>
+<ul>
+    <li>Learn the platform thoroughly, including features, workflows, integrations, and limitations</li>
+    <li>Support customers via email, chat, or ticketing systems with onboarding, setup, and daily usage</li>
+</ul>
+
+<h4>Guide users through:</h4>
+<ul>
+    <li>Account setup and configuration</li>
+    <li>User permissions and access</li>
+    <li>Pipelines, forms, dashboards, and workflows</li>
+</ul>
+
+<h4>Troubleshoot technical issues related to:</h4>
+<ul>
+    <li>Application functionality</li>
+    <li>Automations and triggers</li>
+    <li>Integrations and webhooks</li>
+    <li>User errors versus system bugs</li>
+</ul>
+
+<h4>Provide GoHighLevel-specific support, including:</h4>
+<ul>
+    <li>CRM setup and configuration</li>
+    <li>Automations, triggers, and workflows</li>
+    <li>Pipelines, custom fields, and forms</li>
+    <li>Webhooks and API-related issues</li>
+</ul>
+
+<h4>Additional Responsibilities:</h4>
+<ul>
+    <li>Diagnose issues by replicating customer setups and identifying root causes</li>
+    <li>Escalate bugs or complex issues with clear documentation and technical context</li>
+    <li>Create and maintain internal documentation, FAQs, and help guides</li>
+    <li>Provide structured feedback to product or development teams based on recurring issues</li>
+    <li>Maintain professionalism, accuracy, and clear communication at all times</li>
+    <li>Collaborate effectively with a small, high-performing remote team</li>
+    <li>Perform additional technical or support tasks as required</li>
+</ul>
+
+<h3>Required Qualifications</h3>
+<ul>
+    <li>2+ years hands-on experience with GoHighLevel (non-negotiable)</li>
+    <li>2+ years of experience in technical customer support, web development, or supporting SaaS/web-based platforms</li>
+    <li>2+ years of experience with web applications and SaaS products, CRM systems and automations, as well as integrations, workflows, and troubleshooting</li>
+    <li>Ability to explain technical concepts clearly to non-technical users</li>
+    <li>Strong written and verbal communication skills in English</li>
+    <li>Excellent problem-solving and critical-thinking ability</li>
+</ul>
+
+<h3>Preferred Qualifications</h3>
+<ul>
+    <li>Experience supporting field service platforms, workflow or automation tools, and SaaS startups or scale-ups</li>
+    <li>Basic understanding of APIs and webhooks, as well as HTML, CSS, and basic JavaScript</li>
+    <li>Experience with tools such as Zapier or Make, Twilio, and Stripe</li>
+    <li>Experience working remotely with global or U.S.-based teams</li>
+</ul>
+
+<h3>Required Skills & Tools</h3>
+<ul>
+    <li>Strong proficiency with web-based software and dashboards</li>
+    <li>Ability to learn new systems quickly and troubleshoot independently</li>
+    <li>Excellent organization, prioritization, and time-management skills</li>
+    <li>Clear, structured written communication</li>
+    <li>High emotional intelligence and customer-focused mindset</li>
+    <li>Ability to document issues, steps, and resolutions accurately</li>
+</ul>
+
+<h3>Schedule & Pay</h3>
+<ul>
+    <li>Full-time position; Monday–Friday 9:00am - 5:00pm PST</li>
+    <li>Fully remote role</li>
+    <li>Must work U.S. business hours</li>
+    <li>Competitive monthly pay R14,000 - R25,000 (based on experience and skill)</li>
+    <li>Performance-based growth opportunities</li>
+</ul>
+
+<h3>System Requirements</h3>
+<ul>
+    <li>Stable internet connection (minimum 20 Mbps)</li>
+    <li>Computer with 2.4 GHz processor or higher</li>
+    <li>Minimum 8 GB RAM</li>
+    <li>Windows 10+ or macOS</li>
+    <li>Headset with microphone</li>
+</ul>
+
+<h3>Benefits</h3>
+<ul>
+    <li>Fully remote</li>
+    <li>Long-term, stable role supporting a single SaaS product</li>
+    <li>Opportunity to grow with a scaling tech platform</li>
+    <li>Exposure to real-world SaaS operations, automations, and integrations</li>
+    <li>Collaborative and supportive team culture</li>
+    <li>Opportunity to deepen GoHighLevel and technical support expertise</li>
+</ul>
+
+<p>If you are a technically capable, detail-oriented support professional with real GoHighLevel experience and a passion for solving customer problems, we would love to hear from you.</p>
+        ]]></content:encoded>
+        <excerpt:encoded><![CDATA[Full-time remote Customer Technical Support role for a SaaS platform. Requires 2+ years GoHighLevel experience. Salary R14,000 - R25,000/month.]]></excerpt:encoded>
+        <wp:post_id>1002</wp:post_id>
+        <wp:post_date>2024-12-13 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2024-12-13 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2024-12-13 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2024-12-13 00:00:00</wp:post_modified_gmt>
+        <wp:comment_status>closed</wp:comment_status>
+        <wp:ping_status>closed</wp:ping_status>
+        <wp:post_name>customer-technical-support-cherry-assistant</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_parent>0</wp:post_parent>
+        <wp:menu_order>0</wp:menu_order>
+        <wp:post_type>job</wp:post_type>
+        <wp:post_password></wp:post_password>
+        <wp:is_sticky>0</wp:is_sticky>
+        
+        <!-- Taxonomy: Location (South Africa - Remote) -->
+        <category domain="location" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        
+        <!-- Taxonomy: Job Category -->
+        <category domain="job_category" nicename="it"><![CDATA[IT]]></category>
+        <category domain="job_category" nicename="call-centre"><![CDATA[Call Centre]]></category>
+        
+        <!-- Taxonomy: Job Type -->
+        <category domain="job_type" nicename="full-time"><![CDATA[Full-time]]></category>
+        <category domain="job_type" nicename="remote"><![CDATA[Remote]]></category>
+        
+        <!-- ACF Custom Fields -->
+        <wp:postmeta>
+            <wp:meta_key>company_name</wp:meta_key>
+            <wp:meta_value><![CDATA[Cherry Assistant]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_company_name</wp:meta_key>
+            <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>location</wp:meta_key>
+            <wp:meta_value><![CDATA[South Africa (Remote)]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_location</wp:meta_key>
+            <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>salary_range</wp:meta_key>
+            <wp:meta_value><![CDATA[R14,000 - R25,000/month]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_salary_range</wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>salary_min</wp:meta_key>
+            <wp:meta_value><![CDATA[14000]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_salary_min</wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_min]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>salary_max</wp:meta_key>
+            <wp:meta_value><![CDATA[25000]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_salary_max</wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_max]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>is_featured</wp:meta_key>
+            <wp:meta_value><![CDATA[1]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_is_featured</wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <wp:postmeta>
+            <wp:meta_key>is_urgent</wp:meta_key>
+            <wp:meta_value><![CDATA[1]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_is_urgent</wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
+        </wp:postmeta>
+
+        <!-- Requirements as serialized array -->
+        <wp:postmeta>
+            <wp:meta_key>requirements</wp:meta_key>
+            <wp:meta_value><![CDATA[a:6:{i:0;a:1:{s:11:"requirement";s:48:"2+ years hands-on experience with GoHighLevel";}i:1;a:1:{s:11:"requirement";s:60:"2+ years technical customer support or SaaS experience";}i:2;a:1:{s:11:"requirement";s:55:"Experience with CRM systems, automations, workflows";}i:3;a:1:{s:11:"requirement";s:50:"Strong written and verbal English communication";}i:4;a:1:{s:11:"requirement";s:45:"Excellent problem-solving and critical-thinking";}i:5;a:1:{s:11:"requirement";s:55:"Stable internet (20 Mbps), 8GB RAM, Windows 10+/macOS";}}]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key>_requirements</wp:meta_key>
+            <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
+        </wp:postmeta>
+    </item>
+
+</channel>
+</rss>

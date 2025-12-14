@@ -17,17 +17,10 @@ import {
   ArrowRight,
   X,
 } from "lucide-react";
-import {
-  Job,
-  dummyJobs,
-  provinceData,
-  getJobsByProvince,
-  getJobCountByProvince,
-} from "@/data/jobs";
+import type { Job } from "@/types/wordpress";
 
-// Re-export types and data for backward compatibility
+// Re-export Job type for backward compatibility
 export type { Job };
-export { dummyJobs, provinceData, getJobsByProvince, getJobCountByProvince };
 
 interface JobCardProps {
   job: Job;
@@ -83,7 +76,7 @@ export function JobCard({ job }: JobCardProps) {
       </div>
 
       {/* Title & Company */}
-      <Link href={`/jobs/${job.id}`}>
+      <Link href={`/jobs/${job.slug || job.id}`}>
         <h3 className="text-lg font-semibold text-brand-navy group-hover:text-brand-teal transition-colors mb-1">
           {job.title}
         </h3>
@@ -124,7 +117,7 @@ export function JobCard({ job }: JobCardProps) {
 
       {/* Action */}
       <Link
-        href={`/jobs/${job.id}`}
+        href={`/jobs/${job.slug || job.id}`}
         className="inline-flex items-center gap-1 text-brand-teal font-medium text-sm hover:underline"
       >
         View Details
