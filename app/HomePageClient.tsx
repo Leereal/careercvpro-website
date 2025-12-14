@@ -183,25 +183,25 @@ const freeResources = [
     icon: FileText,
     title: "CV Samples",
     description: "Professional CV templates for different industries",
-    count: "15+ Templates",
+    count: "4 Templates",
   },
   {
     icon: FileCheck,
     title: "Cover Letter Examples",
     description: "Compelling cover letters that get responses",
-    count: "10+ Examples",
+    count: "9 Examples",
   },
   {
     icon: MessageCircle,
     title: "Interview Q&A",
     description: "Common questions with winning answers",
-    count: "50+ Questions",
+    count: "18 Questions",
   },
   {
     icon: CheckCircle2,
     title: "Job Search Checklists",
     description: "Stay organised throughout your job hunt",
-    count: "5 Checklists",
+    count: "8 Checklists",
   },
 ];
 
