@@ -10,32 +10,68 @@
     <title>CareerCVPro Jobs Import</title>
     <link>https://careercvpro.co.za</link>
     <description>Jobs import for CareerCVPro</description>
-    <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
     <language>en-ZA</language>
     <wp:wxr_version>1.2</wp:wxr_version>
     <wp:base_site_url>https://careercvpro.co.za</wp:base_site_url>
     <wp:base_blog_url>https://careercvpro.co.za</wp:base_blog_url>
 
     <!-- ============================================ -->
-    <!-- TAXONOMIES - Location (Provinces & Cities)  -->
+    <!-- TAXONOMIES - Province (Provinces & Cities)  -->
     <!-- ============================================ -->
     
-    <!-- Province: Gauteng (Parent) -->
+    <!-- Province: KwaZulu-Natal -->
     <wp:term>
-        <wp:term_id>1</wp:term_id>
-        <wp:term_taxonomy>location</wp:term_taxonomy>
+        <wp:term_id>3</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
+        <wp:term_slug>kwazulu-natal</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[KwaZulu-Natal]]></wp:term_name>
+    </wp:term>
+
+    <!-- City: Hilton (Child of KwaZulu-Natal) -->
+    <wp:term>
+        <wp:term_id>4</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
+        <wp:term_slug>hilton</wp:term_slug>
+        <wp:term_parent>kwazulu-natal</wp:term_parent>
+        <wp:term_name><![CDATA[Hilton]]></wp:term_name>
+    </wp:term>
+
+    <!-- Province: Eastern Cape -->
+    <wp:term>
+        <wp:term_id>5</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
+        <wp:term_slug>eastern-cape</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Eastern Cape]]></wp:term_name>
+    </wp:term>
+
+    <!-- City: Gqeberha (Child of Eastern Cape) -->
+    <wp:term>
+        <wp:term_id>6</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
+        <wp:term_slug>gqeberha</wp:term_slug>
+        <wp:term_parent>eastern-cape</wp:term_parent>
+        <wp:term_name><![CDATA[Gqeberha]]></wp:term_name>
+    </wp:term>
+
+    <!-- Province: Gauteng -->
+    <wp:term>
+        <wp:term_id>7</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
         <wp:term_slug>gauteng</wp:term_slug>
         <wp:term_parent></wp:term_parent>
         <wp:term_name><![CDATA[Gauteng]]></wp:term_name>
     </wp:term>
-    
-    <!-- City: Johannesburg (Child of Gauteng) -->
+
+    <!-- City: Pretoria East (Child of Gauteng) -->
     <wp:term>
-        <wp:term_id>2</wp:term_id>
-        <wp:term_taxonomy>location</wp:term_taxonomy>
-        <wp:term_slug>johannesburg</wp:term_slug>
+        <wp:term_id>8</wp:term_id>
+        <wp:term_taxonomy>province</wp:term_taxonomy>
+        <wp:term_slug>pretoria-east</wp:term_slug>
         <wp:term_parent>gauteng</wp:term_parent>
-        <wp:term_name><![CDATA[Johannesburg]]></wp:term_name>
+        <wp:term_name><![CDATA[Pretoria East]]></wp:term_name>
     </wp:term>
 
     <!-- ============================================ -->
@@ -45,25 +81,41 @@
     <wp:term>
         <wp:term_id>10</wp:term_id>
         <wp:term_taxonomy>job_category</wp:term_taxonomy>
-        <wp:term_slug>marketing</wp:term_slug>
+        <wp:term_slug>healthcare</wp:term_slug>
         <wp:term_parent></wp:term_parent>
-        <wp:term_name><![CDATA[Marketing]]></wp:term_name>
+        <wp:term_name><![CDATA[Healthcare]]></wp:term_name>
     </wp:term>
     
     <wp:term>
         <wp:term_id>11</wp:term_id>
         <wp:term_taxonomy>job_category</wp:term_taxonomy>
-        <wp:term_slug>it</wp:term_slug>
+        <wp:term_slug>nursing</wp:term_slug>
         <wp:term_parent></wp:term_parent>
-        <wp:term_name><![CDATA[IT]]></wp:term_name>
+        <wp:term_name><![CDATA[Nursing]]></wp:term_name>
     </wp:term>
     
     <wp:term>
         <wp:term_id>12</wp:term_id>
         <wp:term_taxonomy>job_category</wp:term_taxonomy>
-        <wp:term_slug>call-centre</wp:term_slug>
+        <wp:term_slug>retail</wp:term_slug>
         <wp:term_parent></wp:term_parent>
-        <wp:term_name><![CDATA[Call Centre]]></wp:term_name>
+        <wp:term_name><![CDATA[Retail]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>13</wp:term_id>
+        <wp:term_taxonomy>job_category</wp:term_taxonomy>
+        <wp:term_slug>construction-trades</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Construction & Trades]]></wp:term_name>
+    </wp:term>
+    
+    <wp:term>
+        <wp:term_id>14</wp:term_id>
+        <wp:term_taxonomy>job_category</wp:term_taxonomy>
+        <wp:term_slug>administration</wp:term_slug>
+        <wp:term_parent></wp:term_parent>
+        <wp:term_name><![CDATA[Administration]]></wp:term_name>
     </wp:term>
 
     <!-- ============================================ -->
@@ -73,91 +125,105 @@
     <wp:term>
         <wp:term_id>20</wp:term_id>
         <wp:term_taxonomy>job_type</wp:term_taxonomy>
-        <wp:term_slug>internship</wp:term_slug>
-        <wp:term_parent></wp:term_parent>
-        <wp:term_name><![CDATA[Internship]]></wp:term_name>
-    </wp:term>
-    
-    <wp:term>
-        <wp:term_id>21</wp:term_id>
-        <wp:term_taxonomy>job_type</wp:term_taxonomy>
         <wp:term_slug>full-time</wp:term_slug>
         <wp:term_parent></wp:term_parent>
         <wp:term_name><![CDATA[Full-time]]></wp:term_name>
     </wp:term>
-    
+
     <wp:term>
-        <wp:term_id>22</wp:term_id>
+        <wp:term_id>21</wp:term_id>
         <wp:term_taxonomy>job_type</wp:term_taxonomy>
-        <wp:term_slug>remote</wp:term_slug>
+        <wp:term_slug>permanent</wp:term_slug>
         <wp:term_parent></wp:term_parent>
-        <wp:term_name><![CDATA[Remote]]></wp:term_name>
+        <wp:term_name><![CDATA[Permanent]]></wp:term_name>
     </wp:term>
 
     <!-- ============================================ -->
-    <!-- JOB 1: Social Media & Label Support Intern  -->
+    <!-- JOB 1: Enrolled Nurse Auxiliary | Emergency Unit -->
     <!-- ============================================ -->
     
     <item>
-        <title><![CDATA[Social Media & Label Support Intern (Afro House)]]></title>
-        <link>https://careercvpro.co.za/jobs/social-media-label-support-intern-afro-house</link>
-        <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+        <title><![CDATA[Enrolled Nurse Auxiliary | Emergency Unit]]></title>
+        <link>https://careercvpro.co.za/jobs/enrolled-nurse-auxiliary-emergency-unit-life-hilton</link>
+        <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1001</guid>
         <description></description>
         <content:encoded><![CDATA[
-<h2>Internship Opportunity: Social Media & Label Support Intern (Afro House)</h2>
+<h2>Introduction</h2>
+<p>A vacancy exists for an Enrolled Nurse Auxiliary, based at Life Hilton Private Hospital, reporting to the EU Unit Manager, Elaine Van Jaarsveld. The successful candidate will be responsible for ensuring delivery of uncompromising quality care in line with Company strategic objectives and applicable Health/Nursing legislation.</p>
 
-<p>Xpressed Records is offering a part-time internship opportunity for a motivated 1st or 2nd year university student based in Johannesburg who is passionate about Afro House music and culture and interested in learning how an independent record label operates. This role is learning-focused and intended to provide practical exposure to the music industry.</p>
+<h2>Critical Outputs</h2>
 
-<h3>Role Overview</h3>
-<p>The intern will assist the Xpressed Records team with basic support tasks across social media, administration, and general label operations, under guidance and supervision.</p>
-
-<h3>Key Learning & Support Areas</h3>
+<h3>Ensure effective quality management systems by:</h3>
 <ul>
-    <li>Assisting with social media coordination (posting, scheduling, content organisation)</li>
-    <li>Supporting administrative and organisational tasks</li>
-    <li>Exposure to music releases, artist communication, and label workflows</li>
-    <li>Assisting with events and activations when required (optional and scheduled in advance)</li>
+    <li>Attending and participating in Q programs and ensuring induction training is carried out</li>
+    <li>Ensuring monthly Q evaluator cards are completed and report to the shift leader or unit manager</li>
+    <li>Attending and participating in review and ward meetings in order to ensure conformance to QMS audit standards</li>
+    <li>Performing, understanding and complying with the company infection control and safety standards</li>
 </ul>
 
-<h3>Who We're Looking For</h3>
+<h3>Ensure optimum operational efficiencies by:</h3>
 <ul>
-    <li>A registered student (1st or 2nd year at a university or college)</li>
-    <li>Strong organisation and time-management skills</li>
-    <li>Genuine interest in Afro House music & culture</li>
-    <li>Basic familiarity with social media platforms</li>
-    <li>Willingness to learn in a creative, fast-growing environment</li>
+    <li>Ensuring correct and accurate stock administration</li>
+    <li>Correctly reporting patient movements on discharge or transfer</li>
+    <li>Ensuring correct and proper usage and maintenance of equipment</li>
+    <li>Ensuring personal absenteeism is minimised and justified</li>
+    <li>Working flexible hours in order to minimize agency costs and show willingness to assist other departments</li>
 </ul>
 
-<h3>Internship Details</h3>
+<h3>Ensure effective quality patient care by:</h3>
 <ul>
-    <li><strong>Time commitment:</strong> Up to 20 hours per week, with flexible scheduling to accommodate academic commitments</li>
-    <li><strong>Duration:</strong> Internship-based (12 months)</li>
-    <li><strong>Compensation:</strong> Stipend provided</li>
+    <li>Performing and completing tasks assigned in order to maximize patient care</li>
+    <li>Ensuring patient hygiene, comfort and safety is measured in accordance with the nursing care plan</li>
+    <li>Following the correct techniques and wearing PPE's in order to promote the healing of wounds and fractures</li>
+    <li>Monitoring and recording patient intake of fluids</li>
+    <li>Ensuring the management and preparation of surgical and diagnostic procedures</li>
 </ul>
 
-<h3>What the Intern Will Gain</h3>
+<h3>Effective relationship management with customers by:</h3>
 <ul>
-    <li>Hands-on experience working on real music projects with real artists</li>
-    <li>Practical insight into label operations, releases, and artist development</li>
-    <li>Mentorship and guidance from an active independent label</li>
-    <li>Access to Xpressed Records events</li>
-    <li>Label merchandise and cultural exposure within the Afro House space</li>
+    <li>Building and maintaining healthy relationships with internal and external customers</li>
+    <li>Supporting all new staff members with the orientation program</li>
 </ul>
 
-<h3>Growth & Progression</h3>
-<p>There may be opportunities for extended involvement or increased responsibility based on performance, availability, and the growth of the label.</p>
+<h2>Requirements</h2>
+<ul>
+    <li>Needs to be registered as an Enrolled Nurse Auxiliary with SANC</li>
+    <li>Current registration with the relevant professional/regulatory body</li>
+    <li>Experience working in an Emergency Unit</li>
+    <li>Understanding of the private healthcare industry, its challenges and role players would be an advantage</li>
+    <li>Driver's license and ability to travel</li>
+</ul>
+
+<h2>Competencies</h2>
+<ul>
+    <li>Problem-solving, analysis and judgement</li>
+    <li>Resilience</li>
+    <li>Engaging diversity</li>
+    <li>Verbal & written communication and presentation</li>
+    <li>Building relationships</li>
+    <li>Customer responsiveness</li>
+    <li>Organisational awareness</li>
+    <li>Leading by example</li>
+    <li>Ethical behavior</li>
+</ul>
+
+<p><strong>Internal applicants:</strong> Before making an application, you are requested to discuss your application with your line manager. External candidates will also be considered.</p>
+
+<p>Life Healthcare is an Equal Opportunity Employer.</p>
+
+<p>Thank you for your interest in this opportunity. Kindly note that only shortlisted candidates will be contacted. Applicants who have not been contacted within two weeks of the closing date of this advert, should consider their application as unsuccessful.</p>
         ]]></content:encoded>
-        <excerpt:encoded><![CDATA[Xpressed Records is offering a part-time internship opportunity for a motivated 1st or 2nd year university student based in Johannesburg who is passionate about Afro House music and culture.]]></excerpt:encoded>
+        <excerpt:encoded><![CDATA[A vacancy exists for an Enrolled Nurse Auxiliary at Life Hilton Private Hospital Emergency Unit. SANC registration required. Experience in Emergency Unit preferred.]]></excerpt:encoded>
         <wp:post_id>1001</wp:post_id>
-        <wp:post_date>2024-12-14 00:00:00</wp:post_date>
-        <wp:post_date_gmt>2024-12-14 00:00:00</wp:post_date_gmt>
-        <wp:post_modified>2024-12-14 00:00:00</wp:post_modified>
-        <wp:post_modified_gmt>2024-12-14 00:00:00</wp:post_modified_gmt>
+        <wp:post_date>2024-12-15 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2024-12-15 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2024-12-15 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2024-12-15 00:00:00</wp:post_modified_gmt>
         <wp:comment_status>closed</wp:comment_status>
         <wp:ping_status>closed</wp:ping_status>
-        <wp:post_name>social-media-label-support-intern-afro-house</wp:post_name>
+        <wp:post_name>enrolled-nurse-auxiliary-emergency-unit-life-hilton</wp:post_name>
         <wp:status>publish</wp:status>
         <wp:post_parent>0</wp:post_parent>
         <wp:menu_order>0</wp:menu_order>
@@ -165,196 +231,183 @@
         <wp:post_password></wp:post_password>
         <wp:is_sticky>0</wp:is_sticky>
         
-        <!-- Taxonomy: Location (City - child of Province) -->
-        <category domain="location" nicename="johannesburg"><![CDATA[Johannesburg]]></category>
-        <category domain="location" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        <!-- Taxonomy: Province (City - child of Province) -->
+        <category domain="province" nicename="hilton"><![CDATA[Hilton]]></category>
+        <category domain="province" nicename="kwazulu-natal"><![CDATA[KwaZulu-Natal]]></category>
         
         <!-- Taxonomy: Job Category -->
-        <category domain="job_category" nicename="marketing"><![CDATA[Marketing]]></category>
+        <category domain="job_category" nicename="healthcare"><![CDATA[Healthcare]]></category>
+        <category domain="job_category" nicename="nursing"><![CDATA[Nursing]]></category>
         
         <!-- Taxonomy: Job Type -->
-        <category domain="job_type" nicename="internship"><![CDATA[Internship]]></category>
+        <category domain="job_type" nicename="full-time"><![CDATA[Full-time]]></category>
         
         <!-- ACF Custom Fields -->
+        <!-- Company Name -->
         <wp:postmeta>
-            <wp:meta_key>company_name</wp:meta_key>
-            <wp:meta_value><![CDATA[Xpressed Records]]></wp:meta_value>
+            <wp:meta_key><![CDATA[company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Life Healthcare Group (Pty) Ltd]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_company_name</wp:meta_key>
+            <wp:meta_key><![CDATA[_company_name]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Location (text field for display) -->
         <wp:postmeta>
-            <wp:meta_key>location</wp:meta_key>
-            <wp:meta_value><![CDATA[City of Johannesburg, Gauteng, South Africa]]></wp:meta_value>
+            <wp:meta_key><![CDATA[location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Hilton, KwaZulu-Natal]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_location</wp:meta_key>
+            <wp:meta_key><![CDATA[_location]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Facility Name -->
         <wp:postmeta>
-            <wp:meta_key>salary_range</wp:meta_key>
-            <wp:meta_value><![CDATA[Stipend]]></wp:meta_value>
+            <wp:meta_key><![CDATA[facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Life Hilton Private Hospital]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_salary_range</wp:meta_key>
+            <wp:meta_key><![CDATA[_facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_facility]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Salary Range -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Market Related]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_salary_range]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Application Deadline -->
         <wp:postmeta>
-            <wp:meta_key>is_featured</wp:meta_key>
+            <wp:meta_key><![CDATA[application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[2025-11-27]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_application_deadline]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- External Apply URL (Email) -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[external_apply_url]]></wp:meta_key>
+            <wp:meta_value><![CDATA[mailto:Hiltonrecruitment@lifehealthcare.co.za]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_external_apply_url]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_external_apply_url]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Application Email -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[application_email]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Hiltonrecruitment@lifehealthcare.co.za]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_application_email]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_application_email]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Is Featured -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[is_featured]]></wp:meta_key>
             <wp:meta_value><![CDATA[0]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_is_featured</wp:meta_key>
+            <wp:meta_key><![CDATA[_is_featured]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Is Urgent -->
         <wp:postmeta>
-            <wp:meta_key>is_urgent</wp:meta_key>
+            <wp:meta_key><![CDATA[is_urgent]]></wp:meta_key>
             <wp:meta_value><![CDATA[0]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_is_urgent</wp:meta_key>
+            <wp:meta_key><![CDATA[_is_urgent]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
         </wp:postmeta>
 
         <!-- Requirements as serialized array -->
         <wp:postmeta>
-            <wp:meta_key>requirements</wp:meta_key>
-            <wp:meta_value><![CDATA[a:5:{i:0;a:1:{s:11:"requirement";s:52:"Registered student (1st or 2nd year at university)";}i:1;a:1:{s:11:"requirement";s:40:"Strong organisation and time-management";}i:2;a:1:{s:11:"requirement";s:40:"Genuine interest in Afro House music";}i:3;a:1:{s:11:"requirement";s:40:"Basic familiarity with social media";}i:4;a:1:{s:11:"requirement";s:35:"Willingness to learn";}}]]></wp:meta_value>
+            <wp:meta_key><![CDATA[requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[a:5:{i:0;a:1:{s:11:"requirement";s:56:"Registered as an Enrolled Nurse Auxiliary with SANC";}i:1;a:1:{s:11:"requirement";s:58:"Current registration with relevant professional/regulatory body";}i:2;a:1:{s:11:"requirement";s:38:"Experience working in an Emergency Unit";}i:3;a:1:{s:11:"requirement";s:75:"Understanding of the private healthcare industry would be an advantage";}i:4;a:1:{s:11:"requirement";s:36:"Driver's license and ability to travel";}}]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_requirements</wp:meta_key>
+            <wp:meta_key><![CDATA[_requirements]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
         </wp:postmeta>
     </item>
 
     <!-- ============================================ -->
-    <!-- JOB 2: Customer Technical Support           -->
+    <!-- JOB 2: Registered Nurse - Port Elizabeth    -->
     <!-- ============================================ -->
     
     <item>
-        <title><![CDATA[Customer Technical Support]]></title>
-        <link>https://careercvpro.co.za/jobs/customer-technical-support-cherry-assistant</link>
-        <pubDate>Fri, 13 Dec 2024 00:00:00 +0000</pubDate>
+        <title><![CDATA[Registered Nurse - Port Elizabeth]]></title>
+        <link>https://careercvpro.co.za/jobs/registered-nurse-port-elizabeth-rory-mackie</link>
+        <pubDate>Thu, 11 Dec 2025 00:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1002</guid>
         <description></description>
         <content:encoded><![CDATA[
-<p>We are hiring a Customer Technical Support to support a field-service and workflow SaaS platform serving service-based businesses.</p>
+<h2>Overview</h2>
+<p>Our client strives to provide a comprehensive range of residential care services that prioritize the well-being and individual needs of older persons. Their holistic approach focuses on meeting the physical, emotional, and social needs of each resident, fostering a supportive and caring environment.</p>
 
-<p>This is a full-time remote role in a fast-paced, product-driven SaaS environment. The ideal candidate is technically sharp, detail-oriented, calm under pressure, and highly professional, with hands-on experience supporting web-based applications and GoHighLevel users. This role goes beyond basic support. You will be responsible for learning the platform in depth, assisting customers with setup, and troubleshooting real technical and usage issues across workflows, automations, and integrations.</p>
+<h2>Core Values</h2>
+<p>Our client is guided by their core values of Love, Justice, Hospitality, Respect, Compassion, and Patience, and they continue to build on these values in a personal and professional capacity.</p>
 
-<h3>Key Responsibilities</h3>
+<h2>Qualities</h2>
+<p>Excellent leadership qualities as an experienced Registered Nurse. You will come with:</p>
 <ul>
-    <li>Learn the platform thoroughly, including features, workflows, integrations, and limitations</li>
-    <li>Support customers via email, chat, or ticketing systems with onboarding, setup, and daily usage</li>
+    <li>Matric</li>
+    <li>Basic computer literacy</li>
+    <li>Certified qualification as a Registered Nurse and an in-date (current) valid registration with the South African Nursing Council</li>
+    <li>Proven work experience of 5 years in a similar role with great flexibility as well as proof of professional indemnity</li>
+    <li>Fully bilingual and both written and verbal acumen</li>
 </ul>
 
-<h4>Guide users through:</h4>
+<h2>Duties and Responsibilities</h2>
 <ul>
-    <li>Account setup and configuration</li>
-    <li>User permissions and access</li>
-    <li>Pipelines, forms, dashboards, and workflows</li>
+    <li>Perform nursing procedures within the scope of a Professional Nurse/Registered Nurse and administer medicine as per protocols prescribed</li>
+    <li>Ensure a current wellness and support plan for each resident according to their needs and update as necessary</li>
+    <li>Report changes in residents' care requirements to the Quality Care Manager and document in the resident's file. Conduct ongoing resident assessments, care support plans, and other core geriatric evaluations</li>
+    <li>Manage, order, check, and supervise safe medication administration as per organisational protocols and statutory requirements, ensuring strict control of Schedule 5, 6, and 7 drugs</li>
+    <li>Assist residents with their physical and mental health needs, maintaining the highest hygiene, care, and safety standards</li>
+    <li>Supervise and support caregivers, ensuring they deliver high standards of care in line with organisational protocols and procedures</li>
+    <li>Assist with staff training, continuous skills development, and knowledge enhancement</li>
+    <li>Maintain effective communication with team leaders, residents, residents' families, and all stakeholders</li>
+    <li>Monitor resident's dietary needs, liaising with catering staff. Oversee meals served daily</li>
+    <li>Participate in professional development and compulsory education</li>
+    <li>Care for all medical/non-medical equipment and report any negligence, abuse, damage or theft</li>
+    <li>Promote residents' independence and mobility, counsel residents and families, and maintain confidentiality in line with the requirements as stipulated in the POPI Act</li>
+    <li>Be prepared to work day or night shifts as per operational needs</li>
+    <li>Maintain the quality and standard of care, ensuring continuity and good interpersonal relationships with staff and residents and effectively manage conflict and other challenging behaviour amongst staff, residents, and family members</li>
+    <li>Manage daily required consumables and disposables and inform the Quality Care Manager of required needs. Ensure the emergency trolley and all emergency equipment is checked and compliant with regulations</li>
+    <li>Supervise and control subordinates, ensuring proper delegation of duties. Evaluate staff monthly and assist with in-service training. Manage time sheets, attendance, and relief staff</li>
+    <li>Maintain accurate residents' records and ensure proper administration, recording, and storage of ward stock medication, consumables and all other disposables used. Control stock and order supplies timely</li>
+    <li>Organize staff duty rosters, manage leave, and maintain the resident staff allocation register. Manage admission and discharge registers, assist with probation reports, and manage resident surveys. Keep resident information and medication scripts up to date</li>
+    <li>Liaise with the Quality Care Manager and medical practitioners, keeping them informed of residents' issues and treatments. Maintain progress reports and communicate with residents' families. Foster close working relationships with subordinates, house management, multi disciplinarity members, conduct objective performance assessments, reporting to the Quality Care Manager</li>
+    <li>Provide quality resident care with dignity and respect, contributing positively to the team and care environment</li>
+    <li>Follow organizational policies and legislative requirements, adhere to organisational code of conduct and understand reporting structures and responsibilities. Establish and maintain positive relationships with team members</li>
+    <li>Perform additional tasks as requested, facilitate and participate in monthly in-service training and quarterly staff reviews, and adhere to the Core Values of our client</li>
+    <li>Ensure that all OHS requirements and waste management protocols in line with organisational and statutory requirements are adhered to</li>
 </ul>
-
-<h4>Troubleshoot technical issues related to:</h4>
-<ul>
-    <li>Application functionality</li>
-    <li>Automations and triggers</li>
-    <li>Integrations and webhooks</li>
-    <li>User errors versus system bugs</li>
-</ul>
-
-<h4>Provide GoHighLevel-specific support, including:</h4>
-<ul>
-    <li>CRM setup and configuration</li>
-    <li>Automations, triggers, and workflows</li>
-    <li>Pipelines, custom fields, and forms</li>
-    <li>Webhooks and API-related issues</li>
-</ul>
-
-<h4>Additional Responsibilities:</h4>
-<ul>
-    <li>Diagnose issues by replicating customer setups and identifying root causes</li>
-    <li>Escalate bugs or complex issues with clear documentation and technical context</li>
-    <li>Create and maintain internal documentation, FAQs, and help guides</li>
-    <li>Provide structured feedback to product or development teams based on recurring issues</li>
-    <li>Maintain professionalism, accuracy, and clear communication at all times</li>
-    <li>Collaborate effectively with a small, high-performing remote team</li>
-    <li>Perform additional technical or support tasks as required</li>
-</ul>
-
-<h3>Required Qualifications</h3>
-<ul>
-    <li>2+ years hands-on experience with GoHighLevel (non-negotiable)</li>
-    <li>2+ years of experience in technical customer support, web development, or supporting SaaS/web-based platforms</li>
-    <li>2+ years of experience with web applications and SaaS products, CRM systems and automations, as well as integrations, workflows, and troubleshooting</li>
-    <li>Ability to explain technical concepts clearly to non-technical users</li>
-    <li>Strong written and verbal communication skills in English</li>
-    <li>Excellent problem-solving and critical-thinking ability</li>
-</ul>
-
-<h3>Preferred Qualifications</h3>
-<ul>
-    <li>Experience supporting field service platforms, workflow or automation tools, and SaaS startups or scale-ups</li>
-    <li>Basic understanding of APIs and webhooks, as well as HTML, CSS, and basic JavaScript</li>
-    <li>Experience with tools such as Zapier or Make, Twilio, and Stripe</li>
-    <li>Experience working remotely with global or U.S.-based teams</li>
-</ul>
-
-<h3>Required Skills & Tools</h3>
-<ul>
-    <li>Strong proficiency with web-based software and dashboards</li>
-    <li>Ability to learn new systems quickly and troubleshoot independently</li>
-    <li>Excellent organization, prioritization, and time-management skills</li>
-    <li>Clear, structured written communication</li>
-    <li>High emotional intelligence and customer-focused mindset</li>
-    <li>Ability to document issues, steps, and resolutions accurately</li>
-</ul>
-
-<h3>Schedule & Pay</h3>
-<ul>
-    <li>Full-time position; Monday–Friday 9:00am - 5:00pm PST</li>
-    <li>Fully remote role</li>
-    <li>Must work U.S. business hours</li>
-    <li>Competitive monthly pay R14,000 - R25,000 (based on experience and skill)</li>
-    <li>Performance-based growth opportunities</li>
-</ul>
-
-<h3>System Requirements</h3>
-<ul>
-    <li>Stable internet connection (minimum 20 Mbps)</li>
-    <li>Computer with 2.4 GHz processor or higher</li>
-    <li>Minimum 8 GB RAM</li>
-    <li>Windows 10+ or macOS</li>
-    <li>Headset with microphone</li>
-</ul>
-
-<h3>Benefits</h3>
-<ul>
-    <li>Fully remote</li>
-    <li>Long-term, stable role supporting a single SaaS product</li>
-    <li>Opportunity to grow with a scaling tech platform</li>
-    <li>Exposure to real-world SaaS operations, automations, and integrations</li>
-    <li>Collaborative and supportive team culture</li>
-    <li>Opportunity to deepen GoHighLevel and technical support expertise</li>
-</ul>
-
-<p>If you are a technically capable, detail-oriented support professional with real GoHighLevel experience and a passion for solving customer problems, we would love to hear from you.</p>
         ]]></content:encoded>
-        <excerpt:encoded><![CDATA[Full-time remote Customer Technical Support role for a SaaS platform. Requires 2+ years GoHighLevel experience. Salary R14,000 - R25,000/month.]]></excerpt:encoded>
+        <excerpt:encoded><![CDATA[Registered Nurse position at a residential care facility in Port Elizabeth. SANC registration and 5 years experience required. Permanent full-time position.]]></excerpt:encoded>
         <wp:post_id>1002</wp:post_id>
-        <wp:post_date>2024-12-13 00:00:00</wp:post_date>
-        <wp:post_date_gmt>2024-12-13 00:00:00</wp:post_date_gmt>
-        <wp:post_modified>2024-12-13 00:00:00</wp:post_modified>
-        <wp:post_modified_gmt>2024-12-13 00:00:00</wp:post_modified_gmt>
+        <wp:post_date>2025-12-11 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2025-12-11 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2025-12-11 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2025-12-11 00:00:00</wp:post_modified_gmt>
         <wp:comment_status>closed</wp:comment_status>
         <wp:ping_status>closed</wp:ping_status>
-        <wp:post_name>customer-technical-support-cherry-assistant</wp:post_name>
+        <wp:post_name>registered-nurse-port-elizabeth-rory-mackie</wp:post_name>
         <wp:status>publish</wp:status>
         <wp:post_parent>0</wp:post_parent>
         <wp:menu_order>0</wp:menu_order>
@@ -362,88 +415,407 @@
         <wp:post_password></wp:post_password>
         <wp:is_sticky>0</wp:is_sticky>
         
-        <!-- Taxonomy: Location (South Africa - Remote) -->
-        <category domain="location" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        <!-- Taxonomy: Province (City - child of Province) -->
+        <category domain="province" nicename="gqeberha"><![CDATA[Gqeberha]]></category>
+        <category domain="province" nicename="eastern-cape"><![CDATA[Eastern Cape]]></category>
         
         <!-- Taxonomy: Job Category -->
-        <category domain="job_category" nicename="it"><![CDATA[IT]]></category>
-        <category domain="job_category" nicename="call-centre"><![CDATA[Call Centre]]></category>
+        <category domain="job_category" nicename="healthcare"><![CDATA[Healthcare]]></category>
+        <category domain="job_category" nicename="nursing"><![CDATA[Nursing]]></category>
         
         <!-- Taxonomy: Job Type -->
         <category domain="job_type" nicename="full-time"><![CDATA[Full-time]]></category>
-        <category domain="job_type" nicename="remote"><![CDATA[Remote]]></category>
+        <category domain="job_type" nicename="permanent"><![CDATA[Permanent]]></category>
         
         <!-- ACF Custom Fields -->
+        <!-- Company Name -->
         <wp:postmeta>
-            <wp:meta_key>company_name</wp:meta_key>
-            <wp:meta_value><![CDATA[Cherry Assistant]]></wp:meta_value>
+            <wp:meta_key><![CDATA[company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Rory Mackie & Associates]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_company_name</wp:meta_key>
+            <wp:meta_key><![CDATA[_company_name]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Location (text field for display) -->
         <wp:postmeta>
-            <wp:meta_key>location</wp:meta_key>
-            <wp:meta_value><![CDATA[South Africa (Remote)]]></wp:meta_value>
+            <wp:meta_key><![CDATA[location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Gqeberha, Eastern Cape]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_location</wp:meta_key>
+            <wp:meta_key><![CDATA[_location]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Facility Name -->
         <wp:postmeta>
-            <wp:meta_key>salary_range</wp:meta_key>
-            <wp:meta_value><![CDATA[R14,000 - R25,000/month]]></wp:meta_value>
+            <wp:meta_key><![CDATA[facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Residential Care Facility]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_salary_range</wp:meta_key>
+            <wp:meta_key><![CDATA[_facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_facility]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Salary Range -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Market Related]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_salary_range]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Application Deadline -->
         <wp:postmeta>
-            <wp:meta_key>salary_min</wp:meta_key>
-            <wp:meta_value><![CDATA[14000]]></wp:meta_value>
+            <wp:meta_key><![CDATA[application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[2026-01-15]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_salary_min</wp:meta_key>
-            <wp:meta_value><![CDATA[field_salary_min]]></wp:meta_value>
-        </wp:postmeta>
-        
-        <wp:postmeta>
-            <wp:meta_key>salary_max</wp:meta_key>
-            <wp:meta_value><![CDATA[25000]]></wp:meta_value>
-        </wp:postmeta>
-        <wp:postmeta>
-            <wp:meta_key>_salary_max</wp:meta_key>
-            <wp:meta_value><![CDATA[field_salary_max]]></wp:meta_value>
+            <wp:meta_key><![CDATA[_application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_application_deadline]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Is Featured -->
         <wp:postmeta>
-            <wp:meta_key>is_featured</wp:meta_key>
-            <wp:meta_value><![CDATA[1]]></wp:meta_value>
+            <wp:meta_key><![CDATA[is_featured]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_is_featured</wp:meta_key>
+            <wp:meta_key><![CDATA[_is_featured]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
         </wp:postmeta>
         
+        <!-- Is Urgent -->
         <wp:postmeta>
-            <wp:meta_key>is_urgent</wp:meta_key>
-            <wp:meta_value><![CDATA[1]]></wp:meta_value>
+            <wp:meta_key><![CDATA[is_urgent]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_is_urgent</wp:meta_key>
+            <wp:meta_key><![CDATA[_is_urgent]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
         </wp:postmeta>
 
         <!-- Requirements as serialized array -->
         <wp:postmeta>
-            <wp:meta_key>requirements</wp:meta_key>
-            <wp:meta_value><![CDATA[a:6:{i:0;a:1:{s:11:"requirement";s:48:"2+ years hands-on experience with GoHighLevel";}i:1;a:1:{s:11:"requirement";s:60:"2+ years technical customer support or SaaS experience";}i:2;a:1:{s:11:"requirement";s:55:"Experience with CRM systems, automations, workflows";}i:3;a:1:{s:11:"requirement";s:50:"Strong written and verbal English communication";}i:4;a:1:{s:11:"requirement";s:45:"Excellent problem-solving and critical-thinking";}i:5;a:1:{s:11:"requirement";s:55:"Stable internet (20 Mbps), 8GB RAM, Windows 10+/macOS";}}]]></wp:meta_value>
+            <wp:meta_key><![CDATA[requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[a:5:{i:0;a:1:{s:11:"requirement";s:6:"Matric";}i:1;a:1:{s:11:"requirement";s:24:"Basic computer literacy";}i:2;a:1:{s:11:"requirement";s:96:"Certified qualification as a Registered Nurse with current valid SANC registration";}i:3;a:1:{s:11:"requirement";s:82:"5 years proven work experience in a similar role with professional indemnity";}i:4;a:1:{s:11:"requirement";s:47:"Fully bilingual with written and verbal acumen";}}]]></wp:meta_value>
         </wp:postmeta>
         <wp:postmeta>
-            <wp:meta_key>_requirements</wp:meta_key>
+            <wp:meta_key><![CDATA[_requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
+        </wp:postmeta>
+    </item>
+
+    <!-- ============================================ -->
+    <!-- JOB 3: Tiler - CTM                          -->
+    <!-- ============================================ -->
+    
+    <item>
+        <title><![CDATA[Tiler]]></title>
+        <link>https://careercvpro.co.za/jobs/tiler-ctm-gauteng</link>
+        <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1003</guid>
+        <description></description>
+        <content:encoded><![CDATA[
+<h2>Introduction</h2>
+<p>We are looking for an experienced Tiler to join our team. The ideal candidate should be skilled in tile cutting, layout, and installation, with a strong eye for detail and a passion for creating stylish product displays in-store.</p>
+
+<h2>Duties & Responsibilities</h2>
+<ul>
+    <li>Measure, cut, and install tiles for showroom displays</li>
+    <li>Apply tile adhesive and ensure high-quality finishing</li>
+    <li>Follow tile design patterns (including mosaic, herringbone, etc.)</li>
+    <li>Use and maintain tile-cutting tools and equipment</li>
+    <li>Ensure safety compliance and proper PPE use</li>
+    <li>Keep work areas clean and well-maintained</li>
+    <li>Assist with general store and dispatch duties as needed</li>
+</ul>
+
+<h2>Desired Experience & Qualification</h2>
+<ul>
+    <li>Proven experience as a Tiler or similar trade</li>
+    <li>Knowledge of tile types, adhesives, and installation techniques</li>
+    <li>Ability to measure and cut tiles accurately</li>
+    <li>Competent with hand tools, power tools, and tile-cutting machines</li>
+    <li>Physically fit and able to install/remove displays</li>
+    <li>Strong attention to detail and craftsmanship</li>
+    <li>Ability to work independently and as part of a team</li>
+    <li>Positive, proactive attitude</li>
+    <li>Willing to work flexible hours, including weekends and public holidays</li>
+    <li>Matric or equivalent</li>
+    <li>Familiarity with company product ranges is an advantage</li>
+</ul>
+        ]]></content:encoded>
+        <excerpt:encoded><![CDATA[CTM is looking for an experienced Tiler to join their team. Skilled in tile cutting, layout, and installation required. Permanent full-time position in Gauteng.]]></excerpt:encoded>
+        <wp:post_id>1003</wp:post_id>
+        <wp:post_date>2025-12-15 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2025-12-15 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2025-12-15 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2025-12-15 00:00:00</wp:post_modified_gmt>
+        <wp:comment_status>closed</wp:comment_status>
+        <wp:ping_status>closed</wp:ping_status>
+        <wp:post_name>tiler-ctm-gauteng</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_parent>0</wp:post_parent>
+        <wp:menu_order>0</wp:menu_order>
+        <wp:post_type>job</wp:post_type>
+        <wp:post_password></wp:post_password>
+        <wp:is_sticky>0</wp:is_sticky>
+        
+        <!-- Taxonomy: Province -->
+        <category domain="province" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        
+        <!-- Taxonomy: Job Category -->
+        <category domain="job_category" nicename="retail"><![CDATA[Retail]]></category>
+        <category domain="job_category" nicename="construction-trades"><![CDATA[Construction & Trades]]></category>
+        
+        <!-- Taxonomy: Job Type -->
+        <category domain="job_type" nicename="full-time"><![CDATA[Full-time]]></category>
+        <category domain="job_type" nicename="permanent"><![CDATA[Permanent]]></category>
+        
+        <!-- ACF Custom Fields -->
+        <!-- Company Name -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[CTM]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Location (text field for display) -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Gauteng]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Facility Name -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[CTM Store]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_facility]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Salary Range -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Market Related]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Application Deadline -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[2026-01-15]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_application_deadline]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Is Featured -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[is_featured]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_is_featured]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Is Urgent -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[is_urgent]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_is_urgent]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
+        </wp:postmeta>
+
+        <!-- Requirements as serialized array -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[a:6:{i:0;a:1:{s:11:"requirement";s:42:"Proven experience as a Tiler or similar trade";}i:1;a:1:{s:11:"requirement";s:57:"Knowledge of tile types, adhesives, and installation techniques";}i:2;a:1:{s:11:"requirement";s:62:"Competent with hand tools, power tools, and tile-cutting machines";}i:3;a:1:{s:11:"requirement";s:44:"Strong attention to detail and craftsmanship";}i:4;a:1:{s:11:"requirement";s:62:"Willing to work flexible hours, including weekends and public holidays";}i:5;a:1:{s:11:"requirement";s:19:"Matric or equivalent";}}]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
+        </wp:postmeta>
+    </item>
+
+    <!-- ============================================ -->
+    <!-- JOB 4: Shop Assistant - Handpicked Recruitment -->
+    <!-- ============================================ -->
+    
+    <item>
+        <title><![CDATA[Shop Assistant]]></title>
+        <link>https://careercvpro.co.za/jobs/shop-assistant-handpicked-recruitment-pretoria-east</link>
+        <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <guid isPermaLink="false">https://careercvpro.co.za/?post_type=job&amp;p=1004</guid>
+        <description></description>
+        <content:encoded><![CDATA[
+<p><strong>Reference:</strong> PTA000223-MG-1</p>
+<p><strong>Working hours:</strong> 09:00 – 18:00 (retail hours)</p>
+<p><strong>Area:</strong> Pretoria East</p>
+
+<h2>Introduction</h2>
+<p>Our client a well-established retailer requires the services of a Shop Assistant to join their team at their branch that is in Pretoria East area.</p>
+
+<h2>Minimum Requirements</h2>
+<ul>
+    <li>Matric</li>
+    <li>Previous admin or retail experience would be beneficial</li>
+    <li>Ideal position for school leaver, 1st or 2nd job</li>
+    <li>Friendly and out-going type of person</li>
+    <li>Computer Literate</li>
+    <li>Fast learner</li>
+    <li>Reliable Transport</li>
+</ul>
+
+<h2>Purpose of Position</h2>
+<ul>
+    <li>General administration and running of the shop</li>
+    <li>Stock Control</li>
+    <li>Cashier duties</li>
+    <li>Attending to customers</li>
+    <li>Other duties as given by management</li>
+</ul>
+
+<p>Only shortlisted candidates will be contacted.</p>
+        ]]></content:encoded>
+        <excerpt:encoded><![CDATA[Shop Assistant position at a well-established retailer in Pretoria East. Ideal for school leavers. Matric required. R7,500 monthly salary.]]></excerpt:encoded>
+        <wp:post_id>1004</wp:post_id>
+        <wp:post_date>2025-12-10 00:00:00</wp:post_date>
+        <wp:post_date_gmt>2025-12-10 00:00:00</wp:post_date_gmt>
+        <wp:post_modified>2025-12-10 00:00:00</wp:post_modified>
+        <wp:post_modified_gmt>2025-12-10 00:00:00</wp:post_modified_gmt>
+        <wp:comment_status>closed</wp:comment_status>
+        <wp:ping_status>closed</wp:ping_status>
+        <wp:post_name>shop-assistant-handpicked-recruitment-pretoria-east</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_parent>0</wp:post_parent>
+        <wp:menu_order>0</wp:menu_order>
+        <wp:post_type>job</wp:post_type>
+        <wp:post_password></wp:post_password>
+        <wp:is_sticky>0</wp:is_sticky>
+        
+        <!-- Taxonomy: Province (City - child of Province) -->
+        <category domain="province" nicename="pretoria-east"><![CDATA[Pretoria East]]></category>
+        <category domain="province" nicename="gauteng"><![CDATA[Gauteng]]></category>
+        
+        <!-- Taxonomy: Job Category -->
+        <category domain="job_category" nicename="retail"><![CDATA[Retail]]></category>
+        <category domain="job_category" nicename="administration"><![CDATA[Administration]]></category>
+        
+        <!-- Taxonomy: Job Type -->
+        <category domain="job_type" nicename="full-time"><![CDATA[Full-time]]></category>
+        <category domain="job_type" nicename="permanent"><![CDATA[Permanent]]></category>
+        
+        <!-- ACF Custom Fields -->
+        <!-- Company Name -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Handpicked Recruitment]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_company_name]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_company_name]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Location (text field for display) -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Pretoria East, Gauteng]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_location]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_location]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Facility Name -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[Retail Store]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_facility]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_facility]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Salary Range -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[R 7,500 per month]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_salary_range]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_salary_range]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Application Deadline -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[2026-01-10]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_application_deadline]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_application_deadline]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Reference Number -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[reference_number]]></wp:meta_key>
+            <wp:meta_value><![CDATA[PTA000223-MG-1]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_reference_number]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_reference_number]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Is Featured -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[is_featured]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_is_featured]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_featured]]></wp:meta_value>
+        </wp:postmeta>
+        
+        <!-- Is Urgent -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[is_urgent]]></wp:meta_key>
+            <wp:meta_value><![CDATA[0]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_is_urgent]]></wp:meta_key>
+            <wp:meta_value><![CDATA[field_is_urgent]]></wp:meta_value>
+        </wp:postmeta>
+
+        <!-- Requirements as serialized array -->
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[requirements]]></wp:meta_key>
+            <wp:meta_value><![CDATA[a:7:{i:0;a:1:{s:11:"requirement";s:6:"Matric";}i:1;a:1:{s:11:"requirement";s:50:"Previous admin or retail experience would be beneficial";}i:2;a:1:{s:11:"requirement";s:37:"Friendly and out-going type of person";}i:3;a:1:{s:11:"requirement";s:17:"Computer Literate";}i:4;a:1:{s:11:"requirement";s:12:"Fast learner";}i:5;a:1:{s:11:"requirement";s:18:"Reliable Transport";}i:6;a:1:{s:11:"requirement";s:48:"Ideal position for school leaver, 1st or 2nd job";}}]]></wp:meta_value>
+        </wp:postmeta>
+        <wp:postmeta>
+            <wp:meta_key><![CDATA[_requirements]]></wp:meta_key>
             <wp:meta_value><![CDATA[field_requirements]]></wp:meta_value>
         </wp:postmeta>
     </item>
