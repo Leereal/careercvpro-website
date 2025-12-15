@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description:
     "We don't just post jobs — we help South Africans get hired. Find jobs in Gauteng, Western Cape, KZN and across South Africa. Professional CV writing services available.",
   keywords: [
+    "CareerCVPro",
     "jobs in South Africa",
     "South Africa jobs",
     "Gauteng jobs",
@@ -67,7 +68,7 @@ export default function RootLayout({
       <head>
         <PlausibleProvider
           domain="careercvpro.co.za"
-          customDomain="https://plausible-m848ggsc4kwcgoo8os4o80go.tredique.com"
+          customDomain="https://plausible.tredique.com"
           selfHosted
           trackOutboundLinks
         />
