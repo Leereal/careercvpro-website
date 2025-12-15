@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
 import PlausibleProvider from "next-plausible";
@@ -69,6 +70,11 @@ export default function RootLayout({
           customDomain="https://plausible-m848ggsc4kwcgoo8os4o80go.tredique.com"
           selfHosted
           trackOutboundLinks
+        />
+        <Script
+          src="https://rybbit.tredique.com/api/script.js"
+          data-site-id="1"
+          strategy="lazyOnload"
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
