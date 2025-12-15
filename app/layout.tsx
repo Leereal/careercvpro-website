@@ -74,6 +74,7 @@ export default function RootLayout({
         <Script
           src="https://rybbit.tredique.com/api/script.js"
           data-site-id="1"
+          data-session-replay="true"
           strategy="lazyOnload"
         />
       </head>
