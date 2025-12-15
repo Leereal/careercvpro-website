@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
+import PlausibleProvider from "next-plausible";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <PlausibleProvider
+          domain="careercvpro.co.za"
+          customDomain="https://plausible-m848ggsc4kwcgoo8os4o80go.tredique.com"
+          selfHosted
+          trackOutboundLinks
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen pt-16 lg:pt-[7.25rem]">{children}</main>
