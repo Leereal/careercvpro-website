@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     "jobs in South Africa",
     "South Africa jobs",
     "Gauteng jobs",
+
     "Western Cape jobs",
     "KwaZulu-Natal jobs",
     "CV writing South Africa",
@@ -76,6 +77,7 @@ export default function RootLayout({
           src="https://rybbit.tredique.com/api/script.js"
           data-site-id="1"
           data-session-replay="true"
+          data-track-errors="true"
           strategy="lazyOnload"
         />
       </head>
