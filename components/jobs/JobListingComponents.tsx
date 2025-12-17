@@ -74,7 +74,7 @@ export function JobCard({ job }: JobCardProps) {
             </div>
           </div>
         )}
-        
+
         <div className="flex-1 min-w-0">
           {/* Badges */}
           <div className="flex flex-wrap gap-2 mb-3">

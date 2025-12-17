@@ -393,12 +393,14 @@ function transformWPJobToJob(wpJob: WPJob): Job {
     whatsapp: wpJob.jobDetails?.whatsappNumber || null,
     email: null, // No email field in ACF
     deadline: wpJob.jobDetails?.applicationDeadline || null,
-    featuredImage: wpJob.featuredImage?.node ? {
-      url: wpJob.featuredImage.node.sourceUrl,
-      alt: wpJob.featuredImage.node.altText || wpJob.title,
-      width: wpJob.featuredImage.node.mediaDetails?.width,
-      height: wpJob.featuredImage.node.mediaDetails?.height,
-    } : null,
+    featuredImage: wpJob.featuredImage?.node
+      ? {
+          url: wpJob.featuredImage.node.sourceUrl,
+          alt: wpJob.featuredImage.node.altText || wpJob.title,
+          width: wpJob.featuredImage.node.mediaDetails?.width,
+          height: wpJob.featuredImage.node.mediaDetails?.height,
+        }
+      : null,
   };
 }
 
