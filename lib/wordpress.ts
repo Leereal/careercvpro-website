@@ -37,7 +37,11 @@ interface GraphQLResponse<T> {
 async function fetchGraphQL<T>(
   query: string,
   variables: Record<string, unknown> = {},
-  options: { revalidate?: number | false; tags?: string[]; noCache?: boolean } = {}
+  options: {
+    revalidate?: number | false;
+    tags?: string[];
+    noCache?: boolean;
+  } = {}
 ): Promise<T> {
   const { revalidate = 0, tags, noCache = false } = options; // Default to no cache (fresh data)
 
