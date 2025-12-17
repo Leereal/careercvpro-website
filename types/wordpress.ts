@@ -86,6 +86,21 @@ export interface WPJobDetails {
 }
 
 // ============================================
+// Featured Image
+// ============================================
+
+export interface WPFeaturedImage {
+  node: {
+    sourceUrl: string;
+    altText: string | null;
+    mediaDetails: {
+      width: number;
+      height: number;
+    } | null;
+  } | null;
+}
+
+// ============================================
 // Job Post Type
 // ============================================
 
@@ -96,6 +111,7 @@ export interface WPJob extends WPNode {
   excerpt: string | null;
   date: string;
   modified: string;
+  featuredImage: WPFeaturedImage | null;
   jobDetails: WPJobDetails | null;
   locations: WPLocationsConnection;
   jobCategories: WPJobCategoriesConnection;
@@ -159,6 +175,12 @@ export interface Job {
   whatsapp?: string | null;
   email?: string | null;
   deadline?: string | null;
+  featuredImage?: {
+    url: string;
+    alt: string | null;
+    width?: number;
+    height?: number;
+  } | null;
 }
 
 export interface Province {

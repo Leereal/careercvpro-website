@@ -1,0 +1,530 @@
+/* CareerCVPro Job Importer - Admin Styles */
+
+.ccvp-job-importer {
+    max-width: 1400px;
+}
+
+.ccvp-job-importer h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ccvp-job-importer h1 .dashicons {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.ccvp-importer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ccvp-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.ccvp-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-size: 1.3em;
+    color: #1d2327;
+}
+
+.ccvp-card h2 .dashicons {
+    color: #2271b1;
+}
+
+.ccvp-card > .description {
+    color: #646970;
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.ccvp-input-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.ccvp-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    color: #646970;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.ccvp-tab-btn:hover {
+    color: #2271b1;
+    background: #f0f6fc;
+}
+
+.ccvp-tab-btn.active {
+    color: #2271b1;
+    border-bottom-color: #2271b1;
+}
+
+.ccvp-tab-content {
+    display: none;
+}
+
+.ccvp-tab-content.active {
+    display: block;
+}
+
+/* Text Input */
+#ccvp-raw-text {
+    width: 100%;
+    min-height: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 16px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#ccvp-raw-text:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+/* Image Upload */
+.ccvp-image-upload {
+    border: 2px dashed #ccd0d4;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.2s;
+    background: #f6f7f7;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ccvp-image-upload.dragover {
+    border-color: #2271b1;
+    background: #f0f6fc;
+}
+
+.ccvp-dropzone-content {
+    color: #646970;
+}
+
+.ccvp-dropzone-content .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #2271b1;
+    margin-bottom: 10px;
+}
+
+.ccvp-dropzone-content a {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.ccvp-dropzone-content a:hover {
+    text-decoration: underline;
+}
+
+.ccvp-image-preview {
+    position: relative;
+    display: inline-block;
+}
+
+.ccvp-image-preview img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 4px;
+}
+
+.ccvp-remove-image {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #d63638;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.ccvp-remove-image:hover {
+    background: #b32d2e;
+}
+
+.ccvp-remove-image .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Featured Image Upload (smaller version for form) */
+.ccvp-featured-image-upload {
+    border: 2px dashed #ccd0d4;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s;
+    background: #fff;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ccvp-featured-image-upload.dragover {
+    border-color: #2271b1;
+    background: #f0f6fc;
+}
+
+.ccvp-featured-dropzone-content {
+    color: #646970;
+}
+
+.ccvp-featured-dropzone-content .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #2271b1;
+    margin-bottom: 8px;
+}
+
+.ccvp-featured-dropzone-content p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.ccvp-featured-dropzone-content a {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.ccvp-featured-dropzone-content a:hover {
+    text-decoration: underline;
+}
+
+.ccvp-featured-image-preview {
+    position: relative;
+    display: inline-block;
+}
+
+.ccvp-featured-image-preview img {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 4px;
+}
+
+.ccvp-remove-featured-image {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #d63638;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.ccvp-remove-featured-image:hover {
+    background: #b32d2e;
+}
+
+.ccvp-remove-featured-image .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Extract Button */
+#ccvp-extract-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+#ccvp-extract-btn .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Loading State */
+.ccvp-loading {
+    text-align: center;
+    padding: 30px;
+}
+
+.ccvp-loading .spinner {
+    float: none;
+    margin: 0 auto 10px;
+}
+
+.ccvp-loading p {
+    color: #646970;
+    margin: 0;
+}
+
+/* Form Styles */
+.ccvp-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1200px) {
+    .ccvp-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 782px) {
+    .ccvp-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ccvp-form-section {
+    background: #f6f7f7;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.ccvp-form-section h3 {
+    margin: 0 0 16px 0;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid #dcdcde;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.ccvp-form-section-full {
+    grid-column: 1 / -1;
+}
+
+.ccvp-form-row {
+    margin-bottom: 16px;
+}
+
+.ccvp-form-row:last-child {
+    margin-bottom: 0;
+}
+
+.ccvp-form-row label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #1d2327;
+}
+
+.ccvp-form-row .required {
+    color: #d63638;
+}
+
+.ccvp-form-row input[type="text"],
+.ccvp-form-row input[type="email"],
+.ccvp-form-row input[type="url"],
+.ccvp-form-row input[type="date"],
+.ccvp-form-row select,
+.ccvp-form-row textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.ccvp-form-row input:focus,
+.ccvp-form-row select:focus,
+.ccvp-form-row textarea:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+.ccvp-form-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.ccvp-form-row .description {
+    color: #646970;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.ccvp-form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.ccvp-form-row-checkboxes {
+    display: flex;
+    gap: 20px;
+}
+
+.ccvp-form-row-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.ccvp-form-row-checkboxes input[type="checkbox"] {
+    width: auto;
+}
+
+/* Form Actions */
+.ccvp-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #ccd0d4;
+}
+
+#ccvp-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#ccvp-create-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-size: 15px;
+}
+
+/* Success Card */
+.ccvp-success-card {
+    text-align: center;
+    padding: 48px;
+}
+
+.ccvp-success-card > .dashicons {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #00a32a;
+    margin-bottom: 16px;
+}
+
+.ccvp-success-card h2 {
+    display: block;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.ccvp-success-card p {
+    color: #646970;
+    margin-bottom: 24px;
+}
+
+.ccvp-success-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ccvp-success-actions .button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ccvp-card {
+        padding: 16px;
+    }
+    
+    .ccvp-form-row-2col {
+        grid-template-columns: 1fr;
+    }
+    
+    .ccvp-form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .ccvp-form-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ccvp-preview-section,
+.ccvp-success-section {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Error States */
+.ccvp-form-row.has-error input,
+.ccvp-form-row.has-error select,
+.ccvp-form-row.has-error textarea {
+    border-color: #d63638;
+}
+
+.ccvp-form-row .error-message {
+    color: #d63638;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Notice Styles */
+.ccvp-job-importer .notice {
+    margin: 0 0 20px 0;
+}

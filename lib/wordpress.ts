@@ -104,6 +104,16 @@ const GET_ALL_JOBS = `
         excerpt
         date
         modified
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
         jobDetails {
           companyName
           location
@@ -169,6 +179,16 @@ const GET_JOB_BY_SLUG = `
       excerpt
       date
       modified
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          mediaDetails {
+            width
+            height
+          }
+        }
+      }
       jobDetails {
         companyName
         location
@@ -373,6 +393,12 @@ function transformWPJobToJob(wpJob: WPJob): Job {
     whatsapp: wpJob.jobDetails?.whatsappNumber || null,
     email: null, // No email field in ACF
     deadline: wpJob.jobDetails?.applicationDeadline || null,
+    featuredImage: wpJob.featuredImage?.node ? {
+      url: wpJob.featuredImage.node.sourceUrl,
+      alt: wpJob.featuredImage.node.altText || wpJob.title,
+      width: wpJob.featuredImage.node.mediaDetails?.width,
+      height: wpJob.featuredImage.node.mediaDetails?.height,
+    } : null,
   };
 }
 

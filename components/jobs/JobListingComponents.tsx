@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Briefcase,
   MapPin,
@@ -58,36 +59,55 @@ export function JobCard({ job }: JobCardProps) {
           : "border-gray-200"
       } p-6 hover:shadow-lg transition-all group`}
     >
-      {/* Badges */}
-      <div className="flex flex-wrap gap-2 mb-3">
-        {job.featured && (
-          <span className="bg-brand-gold/10 text-brand-gold text-xs font-semibold px-2 py-1 rounded-full">
-            Featured
-          </span>
+      <div className="flex gap-4">
+        {/* Featured Image / Company Logo */}
+        {job.featuredImage?.url && (
+          <div className="flex-shrink-0">
+            <div className="w-16 h-16 relative rounded-lg overflow-hidden bg-gray-100">
+              <Image
+                src={job.featuredImage.url}
+                alt={job.featuredImage.alt || job.company}
+                fill
+                className="object-contain"
+                sizes="64px"
+              />
+            </div>
+          </div>
         )}
-        {job.urgent && (
-          <span className="bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded-full">
-            Urgent
-          </span>
-        )}
-        <span className="bg-brand-teal/10 text-brand-teal text-xs font-medium px-2 py-1 rounded-full">
-          {job.type}
-        </span>
-      </div>
+        
+        <div className="flex-1 min-w-0">
+          {/* Badges */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            {job.featured && (
+              <span className="bg-brand-gold/10 text-brand-gold text-xs font-semibold px-2 py-1 rounded-full">
+                Featured
+              </span>
+            )}
+            {job.urgent && (
+              <span className="bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded-full">
+                Urgent
+              </span>
+            )}
+            <span className="bg-brand-teal/10 text-brand-teal text-xs font-medium px-2 py-1 rounded-full">
+              {job.type}
+            </span>
+          </div>
 
-      {/* Title & Company */}
-      <Link href={`/jobs/${job.slug || job.id}`}>
-        <h3 className="text-lg font-semibold text-brand-navy group-hover:text-brand-teal transition-colors mb-1">
-          {job.title}
-        </h3>
-      </Link>
-      <div className="flex items-center gap-2 text-gray-600 mb-3">
-        <Building2 className="h-4 w-4" />
-        <span>{job.company}</span>
+          {/* Title & Company */}
+          <Link href={`/jobs/${job.slug || job.id}`}>
+            <h3 className="text-lg font-semibold text-brand-navy group-hover:text-brand-teal transition-colors mb-1">
+              {job.title}
+            </h3>
+          </Link>
+          <div className="flex items-center gap-2 text-gray-600 mb-3">
+            <Building2 className="h-4 w-4" />
+            <span>{job.company}</span>
+          </div>
+        </div>
       </div>
 
       {/* Meta Info */}
-      <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+      <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
         <div className="flex items-center gap-1">
           <MapPin className="h-4 w-4" />
           <span>{job.location}</span>

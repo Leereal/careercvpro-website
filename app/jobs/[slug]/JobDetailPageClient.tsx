@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Building2,
@@ -109,62 +110,82 @@ export default function JobDetailPageClient({
             Back to jobs
           </Link>
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            {job.featured && (
-              <span className="bg-brand-gold/10 text-brand-gold text-sm font-semibold px-3 py-1 rounded-full">
-                Featured
-              </span>
-            )}
-            {job.urgent && (
-              <span className="bg-red-100 text-red-600 text-sm font-semibold px-3 py-1 rounded-full">
-                Urgent Hiring
-              </span>
-            )}
-            <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium px-3 py-1 rounded-full">
-              {job.type}
-            </span>
-            <span className="bg-gray-100 text-gray-600 text-sm font-medium px-3 py-1 rounded-full">
-              {job.category}
-            </span>
-          </div>
-
-          <h1 className="text-3xl md:text-4xl font-bold text-brand-navy mb-2">
-            {job.title}
-          </h1>
-
-          <div className="flex items-center gap-2 text-xl text-gray-600 mb-4">
-            <Building2 className="h-5 w-5" />
-            <span>{job.company}</span>
-          </div>
-
-          <div className="flex flex-wrap gap-6 text-gray-500">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5" />
-              <span>{job.location}</span>
-            </div>
-            {job.salary && (
-              <div className="flex items-center gap-2">
-                <DollarSign className="h-5 w-5" />
-                <span>{job.salary}</span>
+          <div className="flex gap-6">
+            {/* Featured Image / Company Logo */}
+            {job.featuredImage?.url && (
+              <div className="flex-shrink-0 hidden sm:block">
+                <div className="w-24 h-24 md:w-32 md:h-32 relative rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
+                  <Image
+                    src={job.featuredImage.url}
+                    alt={job.featuredImage.alt || job.company}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 96px, 128px"
+                    priority
+                  />
+                </div>
               </div>
             )}
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5" />
-              <span>
-                Posted{" "}
-                {daysAgo === 0
-                  ? "today"
-                  : daysAgo === 1
-                  ? "yesterday"
-                  : `${daysAgo} days ago`}
-              </span>
-            </div>
-            {formattedDeadline && (
-              <div className="flex items-center gap-2 text-red-500">
-                <Calendar className="h-5 w-5" />
-                <span>Closes: {formattedDeadline}</span>
+
+            <div className="flex-1">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {job.featured && (
+                  <span className="bg-brand-gold/10 text-brand-gold text-sm font-semibold px-3 py-1 rounded-full">
+                    Featured
+                  </span>
+                )}
+                {job.urgent && (
+                  <span className="bg-red-100 text-red-600 text-sm font-semibold px-3 py-1 rounded-full">
+                    Urgent Hiring
+                  </span>
+                )}
+                <span className="bg-brand-teal/10 text-brand-teal text-sm font-medium px-3 py-1 rounded-full">
+                  {job.type}
+                </span>
+                <span className="bg-gray-100 text-gray-600 text-sm font-medium px-3 py-1 rounded-full">
+                  {job.category}
+                </span>
               </div>
-            )}
+
+              <h1 className="text-3xl md:text-4xl font-bold text-brand-navy mb-2">
+                {job.title}
+              </h1>
+
+              <div className="flex items-center gap-2 text-xl text-gray-600 mb-4">
+                <Building2 className="h-5 w-5" />
+                <span>{job.company}</span>
+              </div>
+
+              <div className="flex flex-wrap gap-6 text-gray-500">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5" />
+                  <span>{job.location}</span>
+                </div>
+                {job.salary && (
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-5 w-5" />
+                    <span>{job.salary}</span>
+                  </div>
+                )}
+                <div className="flex items-center gap-2">
+                  <Clock className="h-5 w-5" />
+                  <span>
+                    Posted{" "}
+                    {daysAgo === 0
+                      ? "today"
+                      : daysAgo === 1
+                      ? "yesterday"
+                      : `${daysAgo} days ago`}
+                  </span>
+                </div>
+                {formattedDeadline && (
+                  <div className="flex items-center gap-2 text-red-500">
+                    <Calendar className="h-5 w-5" />
+                    <span>Closes: {formattedDeadline}</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
