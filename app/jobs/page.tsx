@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import JobsPageClient from "./page.client";
 import { getAllJobs, getProvinces, getJobCategories } from "@/lib/wordpress";
 
+// Force dynamic rendering - always fetch fresh job data
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Jobs in South Africa | Find Employment Opportunities | CareerCVPro",
   description:

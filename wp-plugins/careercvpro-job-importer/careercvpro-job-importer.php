@@ -158,15 +158,15 @@ class CareerCVPro_Job_Importer {
                             <label for="ccvp_gemini_model">Gemini Model</label>
                         </th>
                         <td>
-                            <select id="ccvp_gemini_model" name="ccvp_gemini_model" class="regular-text">
-                                <option value="gemini-2.0-flash-lite" <?php selected($model, 'gemini-2.0-flash-lite'); ?>>Gemini 2.0 Flash Lite (Recommended)</option>
-                                <option value="gemini-2.0-flash" <?php selected($model, 'gemini-2.0-flash'); ?>>Gemini 2.0 Flash</option>
-                                <option value="gemini-1.5-flash" <?php selected($model, 'gemini-1.5-flash'); ?>>Gemini 1.5 Flash</option>
-                                <option value="gemini-1.5-pro" <?php selected($model, 'gemini-1.5-pro'); ?>>Gemini 1.5 Pro</option>
-                                <option value="gemini-pro" <?php selected($model, 'gemini-pro'); ?>>Gemini Pro (Legacy)</option>
-                            </select>
+                            <input type="text" 
+                                   id="ccvp_gemini_model" 
+                                   name="ccvp_gemini_model" 
+                                   value="<?php echo esc_attr($model); ?>" 
+                                   class="regular-text"
+                                   placeholder="gemini-2.0-flash-lite" />
                             <p class="description">
-                                Select the Gemini model to use for extraction. Flash Lite is faster and more cost-effective.
+                                Enter the Gemini model version to use (e.g., gemini-2.0-flash-lite, gemini-2.0-flash, gemini-1.5-pro).<br>
+                                Check <a href="https://ai.google.dev/gemini-api/docs/models/gemini" target="_blank">Google AI documentation</a> for available models.
                             </p>
                         </td>
                     </tr>

@@ -21,6 +21,10 @@ import {
   getCityContent,
 } from "@/lib/pseo-content";
 
+// Force dynamic rendering - always fetch fresh job data
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 // Province data for static generation and metadata
 const provinceData: Record<
   string,

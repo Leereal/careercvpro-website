@@ -37,9 +37,9 @@ interface GraphQLResponse<T> {
 async function fetchGraphQL<T>(
   query: string,
   variables: Record<string, unknown> = {},
-  options: { revalidate?: number | false; tags?: string[] } = {}
+  options: { revalidate?: number | false; tags?: string[]; noCache?: boolean } = {}
 ): Promise<T> {
-  const { revalidate = 60, tags } = options; // Default 60s cache
+  const { revalidate = 0, tags, noCache = false } = options; // Default to no cache (fresh data)
 
   try {
     const fetchOptions: RequestInit & {
@@ -53,8 +53,10 @@ async function fetchGraphQL<T>(
       body: JSON.stringify({ query, variables }),
     };
 
-    // Add Next.js caching options
-    if (revalidate !== undefined || tags) {
+    // Use no-store cache for immediate freshness, or ISR with revalidation
+    if (noCache) {
+      fetchOptions.cache = "no-store";
+    } else if (revalidate !== undefined || tags) {
       fetchOptions.next = {};
       if (revalidate !== undefined) fetchOptions.next.revalidate = revalidate;
       if (tags) fetchOptions.next.tags = tags;
@@ -437,6 +439,7 @@ function transformWPCategoriesToJobCategories(
 
 /**
  * Fetch all jobs from WordPress
+ * Uses no-cache to always get fresh job listings
  */
 export async function getAllJobs(
   pagination?: PaginationParams
@@ -447,7 +450,7 @@ export async function getAllJobs(
       first: pagination?.first || 100,
       after: pagination?.after || null,
     },
-    { revalidate: 60, tags: ["jobs"] }
+    { noCache: true, tags: ["jobs"] }
   );
 
   return {
@@ -525,12 +528,13 @@ export async function getJobsByLocationAndCategory(
 
 /**
  * Fetch a single job by slug
+ * Uses no-cache to always get fresh job data
  */
 export async function getJobBySlug(slug: string): Promise<Job | null> {
   const data = await fetchGraphQL<GetJobResponse>(
     GET_JOB_BY_SLUG,
     { slug },
-    { revalidate: 60, tags: ["jobs", `job-${slug}`] }
+    { noCache: true, tags: ["jobs", `job-${slug}`] }
   );
 
   if (!data.job) return null;
