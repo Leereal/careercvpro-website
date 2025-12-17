@@ -563,6 +563,18 @@ export async function generateMetadata({
       const title = `${job.title} at ${job.company} | ${job.location}`;
       const description = job.excerpt || job.description.slice(0, 155) + "...";
 
+      // Build OpenGraph images array if featured image exists
+      const ogImages = job.featuredImage?.url
+        ? [
+            {
+              url: job.featuredImage.url,
+              width: job.featuredImage.width || 1200,
+              height: job.featuredImage.height || 630,
+              alt: job.featuredImage.alt || `${job.title} at ${job.company}`,
+            },
+          ]
+        : undefined;
+
       return {
         title,
         description,
@@ -580,11 +592,13 @@ export async function generateMetadata({
           type: "website",
           locale: "en_ZA",
           url: `https://www.careercvpro.co.za/jobs/${slug}`,
+          ...(ogImages && { images: ogImages }),
         },
         twitter: {
-          card: "summary",
+          card: job.featuredImage?.url ? "summary_large_image" : "summary",
           title,
           description,
+          ...(job.featuredImage?.url && { images: [job.featuredImage.url] }),
         },
         alternates: {
           canonical: `https://www.careercvpro.co.za/jobs/${slug}`,
