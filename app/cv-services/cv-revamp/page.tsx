@@ -295,13 +295,13 @@ export default function CVRevampPage() {
                   <Phone className="h-5 w-5" />
                   Order via WhatsApp
                 </a>
-                <Link
+                {/* <Link
                   href="/cv-services/order"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors border border-white/20"
                 >
                   Order Online
                   <ArrowRight className="h-5 w-5" />
-                </Link>
+                </Link> */}
               </div>
             </motion.div>
           </div>
