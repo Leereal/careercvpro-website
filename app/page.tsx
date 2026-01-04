@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description:
     "Find jobs across South Africa - Gauteng, Western Cape, KZN and all provinces. Get professional CV writing services from R80. Security, retail, call centre, government jobs, learnerships and internships.",
   keywords: [
+    "CareerCVPro",
+    "Career CV Pro",
     "jobs in South Africa",
     "South African jobs",
     "employment South Africa",

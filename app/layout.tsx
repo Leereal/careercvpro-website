@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "We don't just post jobs — we help South Africans get hired. Find jobs in Gauteng, Western Cape, KZN and across South Africa. Professional CV writing services available.",
   keywords: [
     "CareerCVPro",
+    "Career CV Pro",
     "jobs in South Africa",
     "South Africa jobs",
     "Gauteng jobs",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
     siteName: "CareerCVPro",
     title: "CareerCVPro - South Africa's Career Platform",
     description:
