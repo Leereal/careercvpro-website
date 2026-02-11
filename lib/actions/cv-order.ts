@@ -1,6 +1,11 @@
 "use server";
 
-import { minioClient, CV_LEADS_BUCKET, getPublicUrl, initializeBucket } from "@/lib/minio";
+import {
+  minioClient,
+  CV_LEADS_BUCKET,
+  getPublicUrl,
+  initializeBucket,
+} from "@/lib/minio";
 import { supabase } from "@/lib/supabase";
 import { v4 as uuidv4 } from "uuid";
 
@@ -99,7 +104,7 @@ export async function uploadCV(formData: FormData): Promise<UploadResult> {
       {
         "Content-Type": file.type,
         "x-amz-acl": "public-read",
-      }
+      },
     );
 
     // Get public URL
@@ -170,7 +175,7 @@ export async function saveLead(data: LeadData): Promise<LeadResult> {
  */
 export async function submitCVOrder(
   formData: FormData,
-  leadData: Omit<LeadData, "fileUrl" | "fileName">
+  leadData: Omit<LeadData, "fileUrl" | "fileName">,
 ): Promise<{
   success: boolean;
   leadId?: string;

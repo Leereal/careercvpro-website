@@ -365,7 +365,7 @@ function FileUpload({
         onFileSelect(droppedFile);
       }
     },
-    [onFileSelect]
+    [onFileSelect],
   );
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -385,7 +385,7 @@ function FileUpload({
         onFileSelect(selectedFile);
       }
     },
-    [onFileSelect]
+    [onFileSelect],
   );
 
   if (file) {
@@ -464,7 +464,7 @@ function OrderFormContent() {
   });
 
   const handleFormChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -473,7 +473,7 @@ function OrderFormContent() {
   };
 
   const selectedPackage = servicePackages.find(
-    (pkg) => pkg.id === selectedService
+    (pkg) => pkg.id === selectedService,
   );
   const needsTemplate = selectedPackage?.requiresTemplate || false;
 
@@ -486,13 +486,21 @@ function OrderFormContent() {
 
   const canProceedToStep2 =
     selectedService && (!needsTemplate || selectedTemplate);
-  
+
   // For users without CV, they must provide name, phone, and at least some info (skills, education, or experience)
-  const hasMinimalInfoForNewCV = hasExistingCV === false
-    ? (formData.skills.trim() || formData.education.trim() || formData.experience.trim())
-    : true;
-  
-  const canSubmit = name.trim() && phone.trim() && canProceedToStep2 && hasExistingCV !== null && hasMinimalInfoForNewCV;
+  const hasMinimalInfoForNewCV =
+    hasExistingCV === false
+      ? formData.skills.trim() ||
+        formData.education.trim() ||
+        formData.experience.trim()
+      : true;
+
+  const canSubmit =
+    name.trim() &&
+    phone.trim() &&
+    canProceedToStep2 &&
+    hasExistingCV !== null &&
+    hasMinimalInfoForNewCV;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -607,7 +615,7 @@ function OrderFormContent() {
         const encodedMessage = encodeURIComponent(message);
         window.open(
           `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
-          "_blank"
+          "_blank",
         );
 
         toast.success("Order submitted! WhatsApp is opening...");
@@ -632,7 +640,7 @@ function OrderFormContent() {
         setStep(1);
       } else {
         toast.error(
-          result.error || "Failed to submit order. Please try again."
+          result.error || "Failed to submit order. Please try again.",
         );
       }
     } catch (error) {
@@ -672,8 +680,8 @@ function OrderFormContent() {
             step === 2
               ? "bg-brand-teal/10 text-brand-teal border-b-2 border-brand-teal"
               : canProceedToStep2
-              ? "text-gray-500 hover:bg-gray-50"
-              : "text-gray-300 cursor-not-allowed"
+                ? "text-gray-500 hover:bg-gray-50"
+                : "text-gray-300 cursor-not-allowed"
           }`}
         >
           <span className="flex items-center justify-center gap-2">
@@ -682,8 +690,8 @@ function OrderFormContent() {
                 step === 2
                   ? "bg-brand-teal text-white"
                   : canProceedToStep2
-                  ? "bg-gray-300 text-white"
-                  : "bg-gray-200 text-gray-400"
+                    ? "bg-gray-300 text-white"
+                    : "bg-gray-200 text-gray-400"
               }`}
             >
               2
@@ -841,8 +849,8 @@ function OrderFormContent() {
                 {!selectedService
                   ? "Select a Service to Continue"
                   : needsTemplate && !selectedTemplate
-                  ? "Select a Template to Continue"
-                  : "Continue to Your Details"}
+                    ? "Select a Template to Continue"
+                    : "Continue to Your Details"}
               </button>
             </motion.div>
           ) : (
@@ -881,7 +889,8 @@ function OrderFormContent() {
                     Do you have an existing CV?
                   </h3>
                   <p className="text-sm text-gray-600 mb-6">
-                    If you have a CV, you can upload it. If not, we&apos;ll need some information to create one from scratch.
+                    If you have a CV, you can upload it. If not, we&apos;ll need
+                    some information to create one from scratch.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <button
@@ -907,7 +916,8 @@ function OrderFormContent() {
                 <div className="space-y-6">
                   <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
                     <p className="text-green-700 text-sm">
-                      <strong>Great!</strong> You can upload your CV or attach it on WhatsApp after submitting.
+                      <strong>Great!</strong> You can upload your CV or attach
+                      it on WhatsApp after submitting.
                     </p>
                   </div>
 
@@ -978,7 +988,8 @@ function OrderFormContent() {
                       </span>
                     </h3>
                     <p className="text-sm text-gray-600 mb-4">
-                      Attach your CV now so we can start immediately after payment
+                      Attach your CV now so we can start immediately after
+                      payment
                     </p>
                     <FileUpload
                       file={file}
@@ -986,7 +997,8 @@ function OrderFormContent() {
                       onRemove={() => setFile(null)}
                     />
                     <p className="text-sm text-gray-500 mt-2 text-center">
-                      💡 You can also attach your CV directly on WhatsApp after submitting
+                      💡 You can also attach your CV directly on WhatsApp after
+                      submitting
                     </p>
                   </div>
 
@@ -1028,8 +1040,14 @@ function OrderFormContent() {
                 <div className="space-y-6">
                   <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
                     <p className="text-amber-700 text-sm">
-                      <strong>No problem!</strong> Please fill in as much information as you can. We&apos;ll create your professional CV from scratch. 
-                      <span className="font-semibold"> You must provide at least your skills, education, or work experience.</span>
+                      <strong>No problem!</strong> Please fill in as much
+                      information as you can. We&apos;ll create your
+                      professional CV from scratch.
+                      <span className="font-semibold">
+                        {" "}
+                        You must provide at least your skills, education, or
+                        work experience.
+                      </span>
                     </p>
                   </div>
 
@@ -1070,7 +1088,8 @@ function OrderFormContent() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                           <Phone className="h-4 w-4 inline mr-1" />
-                          3️⃣ Phone Number <span className="text-red-500">*</span>
+                          3️⃣ Phone Number{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="tel"
@@ -1084,7 +1103,8 @@ function OrderFormContent() {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                           <Mail className="h-4 w-4 inline mr-1" />
-                          4️⃣ Email <span className="text-gray-400">(optional)</span>
+                          4️⃣ Email{" "}
+                          <span className="text-gray-400">(optional)</span>
                         </label>
                         <input
                           type="email"
@@ -1117,7 +1137,8 @@ function OrderFormContent() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       <Sparkles className="h-4 w-4 inline mr-1" />
-                      6️⃣ Skills (list your top skills) <span className="text-red-500">*</span>
+                      6️⃣ Skills (list your top skills){" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       name="skills"
@@ -1133,7 +1154,8 @@ function OrderFormContent() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       <GraduationCap className="h-4 w-4 inline mr-1" />
-                      7️⃣ Education (qualification, institution, year) <span className="text-red-500">*</span>
+                      7️⃣ Education (qualification, institution, year){" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       name="education"
@@ -1165,7 +1187,8 @@ function OrderFormContent() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       <Briefcase className="h-4 w-4 inline mr-1" />
-                      9️⃣ Work Experience (title, company, dates, duties) <span className="text-red-500">*</span>
+                      9️⃣ Work Experience (title, company, dates, duties){" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       name="experience"
@@ -1227,7 +1250,8 @@ function OrderFormContent() {
                   {!hasMinimalInfoForNewCV && (
                     <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
                       <p className="text-red-600 text-sm">
-                        ⚠️ Please provide at least your skills, education, or work experience to continue.
+                        ⚠️ Please provide at least your skills, education, or
+                        work experience to continue.
                       </p>
                     </div>
                   )}
