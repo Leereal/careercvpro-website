@@ -31,7 +31,7 @@ interface JobDetailPageClientProps {
   relatedJobs?: Job[];
 }
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 
 export default function JobDetailPageClient({
   job,
@@ -40,7 +40,7 @@ export default function JobDetailPageClient({
   const daysAgo = job
     ? Math.floor(
         (Date.now() - new Date(job.postedDate).getTime()) /
-          (1000 * 60 * 60 * 24)
+          (1000 * 60 * 60 * 24),
       )
     : 0;
 
@@ -75,10 +75,10 @@ export default function JobDetailPageClient({
 
   // Different WhatsApp messages based on whether there's an external apply URL
   const whatsappMessageWithUrl = encodeURIComponent(
-    `Hi! I'm applying for the ${job.title} position at ${job.company}. I'd like help with my CV to make it stand out for this role. Can you assist?`
+    `Hi! I'm applying for the ${job.title} position at ${job.company}. I'd like help with my CV to make it stand out for this role. Can you assist?`,
   );
   const whatsappMessageNoUrl = encodeURIComponent(
-    `Hi! I'm interested in the ${job.title} position at ${job.company}. Can you help me with the application process?`
+    `Hi! I'm interested in the ${job.title} position at ${job.company}. Can you help me with the application process?`,
   );
 
   // Format deadline if available
@@ -174,8 +174,8 @@ export default function JobDetailPageClient({
                     {daysAgo === 0
                       ? "today"
                       : daysAgo === 1
-                      ? "yesterday"
-                      : `${daysAgo} days ago`}
+                        ? "yesterday"
+                        : `${daysAgo} days ago`}
                   </span>
                 </div>
                 {formattedDeadline && (

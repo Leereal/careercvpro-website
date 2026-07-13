@@ -187,9 +187,9 @@ const faqs = [
   },
 ];
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 const whatsappMessage = encodeURIComponent(
-  "Hi! I'd like to order the CV Writing service (R80). I need a professional CV written from scratch."
+  "Hi! I'd like to order the CV Writing service (R80). I need a professional CV written from scratch.",
 );
 
 export default function CVWritingPage() {
@@ -616,12 +616,8 @@ export default function CVWritingPage() {
 
               <p className="text-teal-100 text-sm">
                 Or call/WhatsApp:{" "}
-                <a href="tel:+27749201395" className="underline">
-                  074 920 1395
-                </a>{" "}
-                /{" "}
                 <a href="tel:+27844613158" className="underline">
-                  084 461 3158
+                  +27844613158
                 </a>
               </p>
             </motion.div>

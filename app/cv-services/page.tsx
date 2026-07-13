@@ -204,7 +204,7 @@ export default function CVServicesPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -285,7 +285,7 @@ ${
     }
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/27749201395?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/27844613158?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -342,7 +342,7 @@ ${
                 View Pricing
               </a>
               <a
-                href="https://wa.me/27749201395?text=Hi!%20I'm%20interested%20in%20your%20CV%20services.%20Can%20you%20tell%20me%20more?"
+                href="https://wa.me/27844613158?text=Hi!%20I'm%20interested%20in%20your%20CV%20services.%20Can%20you%20tell%20me%20more?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all duration-300"
@@ -404,8 +404,8 @@ ${
                   selectedService === service.id
                     ? "border-brand-teal bg-brand-teal/5 shadow-xl"
                     : service.popular
-                    ? "border-brand-gold bg-gradient-to-br from-brand-gold/5 to-brand-gold/10"
-                    : "border-border bg-card hover:border-brand-teal/50"
+                      ? "border-brand-gold bg-gradient-to-br from-brand-gold/5 to-brand-gold/10"
+                      : "border-border bg-card hover:border-brand-teal/50"
                 }`}
               >
                 {service.popular && (
@@ -466,8 +466,8 @@ ${
                     selectedService === service.id
                       ? "bg-brand-teal text-white"
                       : service.popular
-                      ? "bg-brand-gold hover:bg-yellow-500 text-brand-navy"
-                      : "bg-brand-teal/10 hover:bg-brand-teal hover:text-white text-brand-teal"
+                        ? "bg-brand-gold hover:bg-yellow-500 text-brand-navy"
+                        : "bg-brand-teal/10 hover:bg-brand-teal hover:text-white text-brand-teal"
                   }`}
                 >
                   {selectedService === service.id
@@ -1016,7 +1016,7 @@ ${
                   Get Started Now
                 </a>
                 <a
-                  href="https://wa.me/27749201395"
+                  href="https://wa.me/27844613158"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 transition-all duration-300"

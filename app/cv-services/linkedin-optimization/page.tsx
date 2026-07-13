@@ -267,7 +267,7 @@ const faqs = [
   },
 ];
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 
 export default function LinkedInOptimizationPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -317,7 +317,7 @@ export default function LinkedInOptimizationPage() {
             >
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  "Hi! I'd like to get my LinkedIn profile optimized. Can you help?"
+                  "Hi! I'd like to get my LinkedIn profile optimized. Can you help?",
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -652,7 +652,7 @@ export default function LinkedInOptimizationPage() {
 
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                      option.whatsappMessage
+                      option.whatsappMessage,
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -823,7 +823,7 @@ export default function LinkedInOptimizationPage() {
             >
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  "Hi! I'd like to get my LinkedIn profile optimized. Can you help?"
+                  "Hi! I'd like to get my LinkedIn profile optimized. Can you help?",
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -839,12 +839,8 @@ export default function LinkedInOptimizationPage() {
               className="text-blue-100 text-sm mt-6"
             >
               WhatsApp:{" "}
-              <a href="tel:+27749201395" className="underline">
-                074 920 1395
-              </a>{" "}
-              /{" "}
               <a href="tel:+27844613158" className="underline">
-                084 461 3158
+                +27844613158
               </a>
             </motion.p>
           </motion.div>

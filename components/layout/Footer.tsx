@@ -101,7 +101,7 @@ export function Footer() {
                 <MessageCircle className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/27749201395"
+                href="https://wa.me/27844613158"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-lg hover:bg-brand-teal transition-colors"
@@ -215,12 +215,12 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-brand-teal" />
               <a
-                href="https://wa.me/27749201395"
+                href="https://wa.me/27844613158"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white"
               >
-                +27 74 920 1395
+                +27844613158
               </a>
             </div>
           </div>

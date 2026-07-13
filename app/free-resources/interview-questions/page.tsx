@@ -593,7 +593,7 @@ export default function InterviewQuestionsPage() {
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="https://wa.me/27749201395?text=Hi%2C%20I%20need%20help%20preparing%20for%20interviews"
+                href="https://wa.me/27844613158?text=Hi%2C%20I%20need%20help%20preparing%20for%20interviews"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors border border-white/20"
@@ -604,7 +604,7 @@ export default function InterviewQuestionsPage() {
             </div>
 
             <p className="text-white/60 text-sm mt-6">
-              Contact us on WhatsApp: +27 74 920 1395 or +27 84 461 3158
+              Contact us on WhatsApp: +27844613158
             </p>
           </div>
         </div>

@@ -444,9 +444,9 @@ const writingTips = [
   },
 ];
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 const whatsappMessage = encodeURIComponent(
-  "Hi! I'd like help with my cover letter. Can you write a professional, tailored cover letter for me?"
+  "Hi! I'd like help with my cover letter. Can you write a professional, tailored cover letter for me?",
 );
 
 export default function CoverLetterSamplesPage() {
@@ -518,7 +518,7 @@ export default function CoverLetterSamplesPage() {
     const blob = await Packer.toBlob(doc);
     saveAs(
       blob,
-      `${title.toLowerCase().replace(/\s+/g, "-")}-cover-letter.docx`
+      `${title.toLowerCase().replace(/\s+/g, "-")}-cover-letter.docx`,
     );
   };
 

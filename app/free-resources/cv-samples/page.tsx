@@ -247,14 +247,14 @@ const cvWritingTips = [
   },
 ];
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 const whatsappMessage = encodeURIComponent(
-  "Hi! I'd like to get a professional CV written. Can you help me?"
+  "Hi! I'd like to get a professional CV written. Can you help me?",
 );
 
 export default function CVSamplesPage() {
   const [selectedTemplate, setSelectedTemplate] = useState<CVTemplate | null>(
-    null
+    null,
   );
   const [expandedIndustry, setExpandedIndustry] = useState<string | null>(null);
 
@@ -502,7 +502,7 @@ export default function CVSamplesPage() {
                       </p>
                       <a
                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                          `Hi! I'd like my CV created using the "${selectedTemplate.name}" template style. Can you help?`
+                          `Hi! I'd like my CV created using the "${selectedTemplate.name}" template style. Can you help?`,
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -551,7 +551,7 @@ export default function CVSamplesPage() {
                       setExpandedIndustry(
                         expandedIndustry === guide.industry
                           ? null
-                          : guide.industry
+                          : guide.industry,
                       )
                     }
                     className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
@@ -760,12 +760,8 @@ export default function CVSamplesPage() {
               className="text-teal-100 text-sm mt-6"
             >
               WhatsApp:{" "}
-              <a href="tel:+27749201395" className="underline">
-                074 920 1395
-              </a>{" "}
-              /{" "}
               <a href="tel:+27844613158" className="underline">
-                084 461 3158
+                +27844613158
               </a>
             </motion.p>
           </motion.div>

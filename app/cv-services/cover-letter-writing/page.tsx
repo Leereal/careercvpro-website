@@ -207,12 +207,12 @@ const faqs = [
   },
 ];
 
-const whatsappNumber = "27749201395";
+const whatsappNumber = "27844613158";
 const whatsappMessage = encodeURIComponent(
-  "Hi! I'd like to order the Cover Letter Writing service (R30). Here's the job I'm applying for:"
+  "Hi! I'd like to order the Cover Letter Writing service (R30). Here's the job I'm applying for:",
 );
 const whatsappComboMessage = encodeURIComponent(
-  "Hi! I'd like to order the CV + Cover Letter Combo (R100). Here's the job I'm targeting:"
+  "Hi! I'd like to order the CV + Cover Letter Combo (R100). Here's the job I'm targeting:",
 );
 
 export default function CoverLetterWritingPage() {
@@ -739,12 +739,8 @@ export default function CoverLetterWritingPage() {
               className="text-teal-100 text-sm mt-6"
             >
               WhatsApp us:{" "}
-              <a href="tel:+27749201395" className="underline">
-                074 920 1395
-              </a>{" "}
-              /{" "}
               <a href="tel:+27844613158" className="underline">
-                084 461 3158
+                +27844613158
               </a>
             </motion.p>
           </motion.div>

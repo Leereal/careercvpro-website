@@ -39,21 +39,12 @@ const staggerContainer = {
 const contactMethods = [
   {
     icon: MessageCircle,
-    title: "WhatsApp (Primary)",
+    title: "WhatsApp",
     description:
       "Fastest way to reach us - instant responses during business hours",
-    contact: "+27 74 920 1395",
-    link: "https://wa.me/27749201395",
-    linkText: "Start WhatsApp Chat",
-    highlight: true,
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp (Secondary)",
-    description: "Alternative WhatsApp line for CV services inquiries",
-    contact: "+27 84 461 3158",
+    contact: "+27844613158",
     link: "https://wa.me/27844613158",
-    linkText: "Chat on WhatsApp",
+    linkText: "Start WhatsApp Chat",
     highlight: true,
   },
   {
@@ -201,7 +192,7 @@ _Sent from CareerCVPro Contact Form_`;
 
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/27749201395?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/27844613158?text=${encodedMessage}`;
 
     // Small delay for UX
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -222,7 +213,7 @@ _Sent from CareerCVPro Contact Form_`;
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -275,7 +266,7 @@ _Sent from CareerCVPro Contact Form_`;
               transition={{ delay: 0.4 }}
             >
               <a
-                href="https://wa.me/27749201395"
+                href="https://wa.me/27844613158"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
@@ -626,7 +617,7 @@ _Sent from CareerCVPro Contact Form_`;
                   <p className="text-sm text-muted-foreground mt-2">
                     Didn&apos;t open?{" "}
                     <a
-                      href="https://wa.me/27749201395"
+                      href="https://wa.me/27844613158"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-brand-teal hover:underline"
