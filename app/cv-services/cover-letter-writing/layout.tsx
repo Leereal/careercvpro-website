@@ -82,7 +82,7 @@ const serviceJsonLd = {
     "@type": "Organization",
     name: "CareerCVPro",
     url: "https://careercvpro.co.za",
-    telephone: "+27844613158",
+    telephone: "+27629650749",
     address: {
       "@type": "PostalAddress",
       addressCountry: "ZA",

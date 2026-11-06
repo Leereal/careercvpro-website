@@ -31,7 +31,7 @@ interface JobDetailPageClientProps {
   relatedJobs?: Job[];
 }
 
-const whatsappNumber = "27844613158";
+const whatsappNumber = "27629650749";
 
 export default function JobDetailPageClient({
   job,

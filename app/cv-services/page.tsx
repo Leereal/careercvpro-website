@@ -285,7 +285,7 @@ ${
     }
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/27844613158?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/27629650749?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -342,7 +342,7 @@ ${
                 View Pricing
               </a>
               <a
-                href="https://wa.me/27844613158?text=Hi!%20I'm%20interested%20in%20your%20CV%20services.%20Can%20you%20tell%20me%20more?"
+                href="https://wa.me/27629650749?text=Hi!%20I'm%20interested%20in%20your%20CV%20services.%20Can%20you%20tell%20me%20more?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all duration-300"
@@ -1016,7 +1016,7 @@ ${
                   Get Started Now
                 </a>
                 <a
-                  href="https://wa.me/27844613158"
+                  href="https://wa.me/27629650749"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/30 transition-all duration-300"

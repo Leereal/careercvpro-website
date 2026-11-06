@@ -421,7 +421,7 @@ function DownloadAllChecklists() {
       [""],
       ["NEED PROFESSIONAL CV HELP?"],
       ["CV: R80 | Cover Letter: R30 | Combo: R100 | LinkedIn: R150"],
-      ["WhatsApp: +27844613158"],
+      ["WhatsApp: +27629650749"],
     ];
 
     const wsSummary = XLSX.utils.aoa_to_sheet(summaryData);
@@ -1234,7 +1234,7 @@ export default function CareerChecklistsPage() {
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="https://wa.me/27844613158?text=Hi%2C%20I%20need%20help%20with%20my%20job%20search"
+                href="https://wa.me/27629650749?text=Hi%2C%20I%20need%20help%20with%20my%20job%20search"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors border border-white/20"
@@ -1245,7 +1245,7 @@ export default function CareerChecklistsPage() {
             </div>
 
             <p className="text-white/60 text-sm mt-6">
-              Contact us on WhatsApp: +27844613158
+              Contact us on WhatsApp: +27629650749
             </p>
           </div>
         </div>
@@ -1388,7 +1388,7 @@ function PrintableChecklist({
       margin,
       yPos + 8,
     );
-    doc.text("WhatsApp: +27844613158", margin, yPos + 14);
+    doc.text("WhatsApp: +27629650749", margin, yPos + 14);
 
     // Notes section hint
     doc.setFontSize(8);
@@ -1427,7 +1427,7 @@ function PrintableChecklist({
       ["", "Remaining: [Items without checkmarks]"],
       [""], // Empty row
       ["", "Contact CareerCVPro for professional CV services:"],
-      ["", "WhatsApp: +27844613158"],
+      ["", "WhatsApp: +27629650749"],
       ["", "Website: careercvpro.co.za"],
     ];
 
@@ -1471,7 +1471,7 @@ function PrintableChecklist({
       ["Contact CareerCVPro for professional CV writing services"],
       ["CV: R80 | Cover Letter: R30 | Combo: R100 | LinkedIn: R150"],
       [""],
-      ["WhatsApp: +27844613158"],
+      ["WhatsApp: +27629650749"],
       ["Website: careercvpro.co.za"],
     ];
 

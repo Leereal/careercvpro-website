@@ -207,7 +207,7 @@ const faqs = [
   },
 ];
 
-const whatsappNumber = "27844613158";
+const whatsappNumber = "27629650749";
 const whatsappMessage = encodeURIComponent(
   "Hi! I'd like to order the Cover Letter Writing service (R30). Here's the job I'm applying for:",
 );
@@ -739,8 +739,8 @@ export default function CoverLetterWritingPage() {
               className="text-teal-100 text-sm mt-6"
             >
               WhatsApp us:{" "}
-              <a href="tel:+27844613158" className="underline">
-                +27844613158
+              <a href="tel:+27629650749" className="underline">
+                +27629650749
               </a>
             </motion.p>
           </motion.div>

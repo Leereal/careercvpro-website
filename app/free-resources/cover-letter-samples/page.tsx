@@ -444,7 +444,7 @@ const writingTips = [
   },
 ];
 
-const whatsappNumber = "27844613158";
+const whatsappNumber = "27629650749";
 const whatsappMessage = encodeURIComponent(
   "Hi! I'd like help with my cover letter. Can you write a professional, tailored cover letter for me?",
 );

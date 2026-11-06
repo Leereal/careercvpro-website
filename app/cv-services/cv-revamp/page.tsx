@@ -482,7 +482,7 @@ function OrderFormContent() {
   const utmMedium = searchParams.get("utm_medium");
   const utmCampaign = searchParams.get("utm_campaign");
 
-  const phoneNumber = "27844613158";
+  const phoneNumber = "27629650749";
 
   const canProceedToStep2 =
     selectedService && (!needsTemplate || selectedTemplate);
@@ -1772,13 +1772,13 @@ export default function CVRevampPage() {
                 Order Now
               </button>
               <a
-                href="https://wa.me/27844613158?text=Hi%2C%20I%20want%20to%20revamp%20my%20CV"
+                href="https://wa.me/27629650749?text=Hi%2C%20I%20want%20to%20revamp%20my%20CV"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors border border-white/20"
               >
                 <Phone className="h-5 w-5" />
-                WhatsApp: +27844613158
+                WhatsApp: +27629650749
               </a>
             </div>
 

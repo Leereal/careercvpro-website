@@ -264,8 +264,8 @@ export const cvWritingTips = [
   },
 ];
 
-export const WHATSAPP_NUMBER = "27844613158";
-export const WHATSAPP_DISPLAY = "+27 84 461 3158";
+export const WHATSAPP_NUMBER = "27629650749";
+export const WHATSAPP_DISPLAY = "+27 62 965 0749";
 
 export const cvTemplateFaqs: FAQ[] = [
   {

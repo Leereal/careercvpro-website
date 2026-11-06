@@ -267,7 +267,7 @@ const faqs = [
   },
 ];
 
-const whatsappNumber = "27844613158";
+const whatsappNumber = "27629650749";
 
 export default function LinkedInOptimizationPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -839,8 +839,8 @@ export default function LinkedInOptimizationPage() {
               className="text-blue-100 text-sm mt-6"
             >
               WhatsApp:{" "}
-              <a href="tel:+27844613158" className="underline">
-                +27844613158
+              <a href="tel:+27629650749" className="underline">
+                +27629650749
               </a>
             </motion.p>
           </motion.div>
