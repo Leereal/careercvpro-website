@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Complete guide to writing a professional CV for the South African job market.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/career-tips/cv-guides",
+    canonical: "https://www.careercvpro.co.za/career-tips/cv-guides",
   },
   robots: {
     index: true,
@@ -76,25 +76,25 @@ const jsonLd = {
   headline: "How to Write a CV in South Africa 2025/2026 - Complete Guide",
   description:
     "Learn how to write a professional CV for the South African job market. Expert tips on formatting, ATS optimization, what to include and avoid.",
-  image: "https://careercvpro.co.za/og-cv-guide.png",
+  image: "https://www.careercvpro.co.za/og-cv-guide.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/career-tips/cv-guides",
+    "@id": "https://www.careercvpro.co.za/career-tips/cv-guides",
   },
   articleSection: "Career Advice",
   keywords:

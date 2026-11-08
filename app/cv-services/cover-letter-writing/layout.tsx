@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Professional, job-specific cover letters for R30. Unlimited revisions, fast delivery.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/cv-services/cover-letter-writing",
+    canonical: "https://www.careercvpro.co.za/cv-services/cover-letter-writing",
   },
   robots: {
     index: true,
@@ -81,7 +81,7 @@ const serviceJsonLd = {
   provider: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
     telephone: "+27629650749",
     address: {
       "@type": "PostalAddress",
@@ -173,19 +173,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://careercvpro.co.za",
+      item: "https://www.careercvpro.co.za",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "CV Services",
-      item: "https://careercvpro.co.za/cv-services",
+      item: "https://www.careercvpro.co.za/cv-services",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Cover Letter Writing",
-      item: "https://careercvpro.co.za/cv-services/cover-letter-writing",
+      item: "https://www.careercvpro.co.za/cv-services/cover-letter-writing",
     },
   ],
 };

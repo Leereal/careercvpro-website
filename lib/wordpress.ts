@@ -271,6 +271,22 @@ const GET_ALL_JOB_SLUGS = `
   }
 `;
 
+const GET_JOB_SITEMAP_PAGE = `
+  query GetJobSitemapPage($first: Int = 100, $after: String) {
+    jobs(first: $first, after: $after, where: { orderby: { field: DATE, order: DESC } }) {
+      nodes {
+        slug
+        date
+        modified
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+`;
+
 // ============================================
 // Data Transformers
 // ============================================
@@ -443,10 +459,12 @@ function transformWPCategoriesToJobCategories(
 
 /**
  * Fetch all jobs from WordPress
- * Uses no-cache to always get fresh job listings
+ * Uses no-cache to always get fresh job listings, unless `revalidate` (seconds)
+ * is given, in which case the response is cached for that long.
  */
 export async function getAllJobs(
-  pagination?: PaginationParams
+  pagination?: PaginationParams,
+  options: { revalidate?: number } = {}
 ): Promise<{ jobs: Job[]; hasMore: boolean; endCursor: string | null }> {
   const data = await fetchGraphQL<GetJobsResponse>(
     GET_ALL_JOBS,
@@ -454,7 +472,9 @@ export async function getAllJobs(
       first: pagination?.first || 100,
       after: pagination?.after || null,
     },
-    { noCache: true, tags: ["jobs"] }
+    options.revalidate !== undefined
+      ? { revalidate: options.revalidate, tags: ["jobs"] }
+      : { noCache: true, tags: ["jobs"] }
   );
 
   return {
@@ -462,6 +482,30 @@ export async function getAllJobs(
     hasMore: data.jobs.pageInfo.hasNextPage,
     endCursor: data.jobs.pageInfo.endCursor,
   };
+}
+
+/**
+ * Whether a job belongs to a province or city slug.
+ * Shared by the listing pages and the sitemap so they agree on which pages have jobs.
+ */
+export function jobMatchesLocation(job: Job, locationSlug: string): boolean {
+  return (
+    job.provinceSlug === locationSlug ||
+    job.citySlug === locationSlug ||
+    job.province.toLowerCase().replace(/\s+/g, "-") === locationSlug ||
+    (!!job.city &&
+      job.city.toLowerCase().replace(/\s+/g, "-") === locationSlug)
+  );
+}
+
+/**
+ * Whether a job belongs to a category slug.
+ */
+export function jobMatchesCategory(job: Job, categorySlug: string): boolean {
+  return (
+    job.categorySlug === categorySlug ||
+    job.category.toLowerCase().replace(/\s+/g, "-") === categorySlug
+  );
 }
 
 /**
@@ -473,15 +517,7 @@ export async function getJobsByLocation(
   first: number = 100
 ): Promise<Job[]> {
   const { jobs } = await getAllJobs({ first });
-
-  // Client-side filter by province or city slug
-  return jobs.filter(
-    (job) =>
-      job.provinceSlug === locationSlug ||
-      job.citySlug === locationSlug ||
-      job.province.toLowerCase().replace(/\s+/g, "-") === locationSlug ||
-      (job.city && job.city.toLowerCase().replace(/\s+/g, "-") === locationSlug)
-  );
+  return jobs.filter((job) => jobMatchesLocation(job, locationSlug));
 }
 
 /**
@@ -493,13 +529,7 @@ export async function getJobsByCategory(
   first: number = 100
 ): Promise<Job[]> {
   const { jobs } = await getAllJobs({ first });
-
-  // Client-side filter by category slug
-  return jobs.filter(
-    (job) =>
-      job.categorySlug === categorySlug ||
-      job.category.toLowerCase().replace(/\s+/g, "-") === categorySlug
-  );
+  return jobs.filter((job) => jobMatchesCategory(job, categorySlug));
 }
 
 /**
@@ -512,22 +542,43 @@ export async function getJobsByLocationAndCategory(
   first: number = 100
 ): Promise<Job[]> {
   const { jobs } = await getAllJobs({ first });
+  return jobs.filter(
+    (job) =>
+      jobMatchesLocation(job, locationSlug) &&
+      jobMatchesCategory(job, categorySlug)
+  );
+}
 
-  // Client-side filter by both location and category
-  return jobs.filter((job) => {
-    const matchesLocation =
-      job.provinceSlug === locationSlug ||
-      job.citySlug === locationSlug ||
-      job.province.toLowerCase().replace(/\s+/g, "-") === locationSlug ||
-      (job.city &&
-        job.city.toLowerCase().replace(/\s+/g, "-") === locationSlug);
+/**
+ * Fetch slug and dates for every published job, 100 per request.
+ * WPGraphQL caps `first` at 100, so a single getAllJobs() call never returns
+ * more than the newest 100 jobs. Requests run one after another and only ask
+ * for three small fields, to keep load on WordPress low.
+ */
+export async function getAllJobSitemapEntries(
+  maxPages: number = 30
+): Promise<Array<{ slug: string; date: string; modified: string }>> {
+  const entries: Array<{ slug: string; date: string; modified: string }> = [];
+  let after: string | null = null;
 
-    const matchesCategory =
-      job.categorySlug === categorySlug ||
-      job.category.toLowerCase().replace(/\s+/g, "-") === categorySlug;
+  for (let page = 0; page < maxPages; page++) {
+    const data: {
+      jobs: {
+        nodes: Array<{ slug: string; date: string; modified: string }>;
+        pageInfo: { hasNextPage: boolean; endCursor: string | null };
+      };
+    } = await fetchGraphQL(
+      GET_JOB_SITEMAP_PAGE,
+      { first: 100, after },
+      { revalidate: 3600, tags: ["jobs"] }
+    );
 
-    return matchesLocation && matchesCategory;
-  });
+    entries.push(...data.jobs.nodes);
+    if (!data.jobs.pageInfo.hasNextPage || !data.jobs.pageInfo.endCursor) break;
+    after = data.jobs.pageInfo.endCursor;
+  }
+
+  return entries;
 }
 
 /**

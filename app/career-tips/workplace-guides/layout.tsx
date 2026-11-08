@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Succeed in your workplace with our comprehensive guide covering first 90 days, office politics, and SA culture.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/career-tips/workplace-guides",
+    canonical: "https://www.careercvpro.co.za/career-tips/workplace-guides",
   },
   robots: {
     index: true,
@@ -76,25 +76,25 @@ const jsonLd = {
   headline: "Workplace Success Guide South Africa 2025/2026",
   description:
     "Learn how to succeed in South African workplaces with our comprehensive guide covering first 90 days, office politics, asking for raises, and workplace culture.",
-  image: "https://careercvpro.co.za/og-workplace-guide.png",
+  image: "https://www.careercvpro.co.za/og-workplace-guide.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/career-tips/workplace-guides",
+    "@id": "https://www.careercvpro.co.za/career-tips/workplace-guides",
   },
   articleSection: "Career Advice",
   keywords:

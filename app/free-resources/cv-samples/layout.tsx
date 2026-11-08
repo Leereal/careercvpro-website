@@ -5,7 +5,7 @@ import {
   cvWritingTips,
 } from "@/lib/cv-templates";
 
-const SITE = "https://careercvpro.co.za";
+const SITE = "https://www.careercvpro.co.za";
 const PAGE_URL = `${SITE}/free-resources/cv-samples`;
 const templateCount = freeCVTemplates.length;
 // Social share image. It says "7 Free CV Templates", so regenerate it if the count changes.

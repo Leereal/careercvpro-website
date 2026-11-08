@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Complete guide to finding employment in South Africa with top job portals and networking strategies.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/career-tips/job-search-guides",
+    canonical: "https://www.careercvpro.co.za/career-tips/job-search-guides",
   },
   robots: {
     index: true,
@@ -76,25 +76,25 @@ const jsonLd = {
   headline: "Job Search Guide South Africa 2025/2026 - Complete Guide",
   description:
     "Learn how to find employment in South Africa with our comprehensive job search guide covering top portals, networking strategies, and industry-specific tips.",
-  image: "https://careercvpro.co.za/og-job-search-guide.png",
+  image: "https://www.careercvpro.co.za/og-job-search-guide.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/career-tips/job-search-guides",
+    "@id": "https://www.careercvpro.co.za/career-tips/job-search-guides",
   },
   articleSection: "Career Advice",
   keywords:

@@ -70,7 +70,9 @@ export function JobPostingSchema({ job }: JobPostingSchemaProps) {
       },
     },
     ...(baseSalary && { baseSalary }),
-    ...(job.applyUrl && { directApply: true }),
+    // directApply means the whole application happens on this site. Jobs with
+    // an applyUrl send people to the employer's site, so it must be false.
+    ...(job.applyUrl && { directApply: false }),
     applicantLocationRequirements: {
       "@type": "Country",
       name: "South Africa",

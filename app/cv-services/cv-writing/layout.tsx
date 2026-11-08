@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "Professional CV writing for R80. Written from scratch, ATS-optimized, unlimited revisions.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/cv-services/cv-writing",
+    canonical: "https://www.careercvpro.co.za/cv-services/cv-writing",
   },
   robots: {
     index: true,
@@ -82,7 +82,7 @@ const serviceJsonLd = {
   provider: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
     telephone: "+27629650749",
     address: {
       "@type": "PostalAddress",
@@ -174,19 +174,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://careercvpro.co.za",
+      item: "https://www.careercvpro.co.za",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "CV Services",
-      item: "https://careercvpro.co.za/cv-services",
+      item: "https://www.careercvpro.co.za/cv-services",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "CV Writing",
-      item: "https://careercvpro.co.za/cv-services/cv-writing",
+      item: "https://www.careercvpro.co.za/cv-services/cv-writing",
     },
   ],
 };

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "20+ interview questions with answer examples and SA-specific tips.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/free-resources/interview-questions",
+    canonical: "https://www.careercvpro.co.za/free-resources/interview-questions",
   },
   robots: {
     index: true,
@@ -77,25 +77,25 @@ const jsonLd = {
     "Common Interview Questions & Answers for South African Job Seekers 2025/2026",
   description:
     "Comprehensive guide to interview questions asked by South African employers with good/bad answer examples, the STAR method, and SA-specific tips.",
-  image: "https://careercvpro.co.za/og-interview-questions.png",
+  image: "https://www.careercvpro.co.za/og-interview-questions.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/free-resources/interview-questions",
+    "@id": "https://www.careercvpro.co.za/free-resources/interview-questions",
   },
   articleSection: "Career Resources",
   keywords:

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Complete guide to acing your job interview in South Africa with common questions and model answers.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/career-tips/interview-guides",
+    canonical: "https://www.careercvpro.co.za/career-tips/interview-guides",
   },
   robots: {
     index: true,
@@ -76,25 +76,25 @@ const jsonLd = {
   headline: "Job Interview Tips South Africa 2025/2026 - Complete Guide",
   description:
     "Learn how to ace your job interview in South Africa with common questions, model answers, and SA-specific preparation tips.",
-  image: "https://careercvpro.co.za/og-interview-guide.png",
+  image: "https://www.careercvpro.co.za/og-interview-guide.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/career-tips/interview-guides",
+    "@id": "https://www.careercvpro.co.za/career-tips/interview-guides",
   },
   articleSection: "Career Advice",
   keywords:

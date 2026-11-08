@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Professional cover letter templates for SA job seekers. Graduate, admin, IT, healthcare & more.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/free-resources/cover-letter-samples",
+    canonical: "https://www.careercvpro.co.za/free-resources/cover-letter-samples",
   },
   robots: {
     index: true,
@@ -82,18 +82,18 @@ const articleJsonLd = {
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   datePublished: "2025-01-01",
   dateModified: "2025-12-13",
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/free-resources/cover-letter-samples",
+    "@id": "https://www.careercvpro.co.za/free-resources/cover-letter-samples",
   },
 };
 
@@ -224,19 +224,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://careercvpro.co.za",
+      item: "https://www.careercvpro.co.za",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Free Resources",
-      item: "https://careercvpro.co.za/free-resources",
+      item: "https://www.careercvpro.co.za/free-resources",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Cover Letter Samples",
-      item: "https://careercvpro.co.za/free-resources/cover-letter-samples",
+      item: "https://www.careercvpro.co.za/free-resources/cover-letter-samples",
     },
   ],
 };

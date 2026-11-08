@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Interactive and printable career checklists for SA job seekers. Stay organized and land your dream job.",
   },
   alternates: {
-    canonical: "https://careercvpro.co.za/free-resources/career-checklists",
+    canonical: "https://www.careercvpro.co.za/free-resources/career-checklists",
   },
   robots: {
     index: true,
@@ -77,25 +77,25 @@ const jsonLd = {
   headline: "Free Career Checklists for South African Job Seekers 2025/2026",
   description:
     "Comprehensive collection of free interactive and printable career checklists including job search preparation, interview prep, networking, and more for South African professionals.",
-  image: "https://careercvpro.co.za/og-career-checklists.png",
+  image: "https://www.careercvpro.co.za/og-career-checklists.png",
   author: {
     "@type": "Organization",
     name: "CareerCVPro",
-    url: "https://careercvpro.co.za",
+    url: "https://www.careercvpro.co.za",
   },
   publisher: {
     "@type": "Organization",
     name: "CareerCVPro",
     logo: {
       "@type": "ImageObject",
-      url: "https://careercvpro.co.za/logo.png",
+      url: "https://www.careercvpro.co.za/logo.png",
     },
   },
   datePublished: "2025-01-01",
   dateModified: new Date().toISOString().split("T")[0],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://careercvpro.co.za/free-resources/career-checklists",
+    "@id": "https://www.careercvpro.co.za/free-resources/career-checklists",
   },
   articleSection: "Career Resources",
   keywords:
