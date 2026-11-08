@@ -362,30 +362,16 @@ export default function CityPageClient({
                 },
               ],
             },
+            // Google only allows JobPosting markup on the job's own page, so
+            // the city page just links to those pages.
             mainEntity: {
               "@type": "ItemList",
-              numberOfItems: initialJobs.length,
+              numberOfItems: Math.min(initialJobs.length, 10),
               itemListElement: initialJobs.slice(0, 10).map((job, index) => ({
                 "@type": "ListItem",
                 position: index + 1,
-                item: {
-                  "@type": "JobPosting",
-                  title: job.title,
-                  datePosted: job.postedDate,
-                  hiringOrganization: {
-                    "@type": "Organization",
-                    name: job.company,
-                  },
-                  jobLocation: {
-                    "@type": "Place",
-                    address: {
-                      "@type": "PostalAddress",
-                      addressLocality: cityName,
-                      addressRegion: province,
-                      addressCountry: "ZA",
-                    },
-                  },
-                },
+                name: `${job.title} at ${job.company}`,
+                url: `https://www.careercvpro.co.za/jobs/${job.slug}`,
               })),
             },
           }),

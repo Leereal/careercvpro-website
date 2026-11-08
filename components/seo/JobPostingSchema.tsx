@@ -4,6 +4,19 @@ interface JobPostingSchemaProps {
   job: Job;
 }
 
+// Most jobs have no closing date in WordPress. Treat those as closed this many
+// days after posting, so old listings drop out of Google for Jobs instead of
+// staying live for ever.
+const DEFAULT_LISTING_DAYS = 60;
+
+function getValidThrough(job: Job): string | undefined {
+  if (job.deadline) return job.deadline;
+  const closes = new Date(job.postedDate);
+  if (Number.isNaN(closes.getTime())) return undefined;
+  closes.setUTCDate(closes.getUTCDate() + DEFAULT_LISTING_DAYS);
+  return closes.toISOString();
+}
+
 export function JobPostingSchema({ job }: JobPostingSchemaProps) {
   // Build salary object if salary data exists
   const baseSalary =
@@ -41,6 +54,8 @@ export function JobPostingSchema({ job }: JobPostingSchemaProps) {
     return employmentTypeMap[normalized] || "FULL_TIME";
   });
 
+  const validThrough = getValidThrough(job);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
@@ -52,7 +67,7 @@ export function JobPostingSchema({ job }: JobPostingSchemaProps) {
       value: job.id,
     },
     datePosted: job.postedDate,
-    ...(job.deadline && { validThrough: job.deadline }),
+    ...(validThrough && { validThrough }),
     employmentType:
       employmentTypes.length === 1 ? employmentTypes[0] : employmentTypes,
     hiringOrganization: {
