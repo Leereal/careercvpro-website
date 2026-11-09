@@ -1,3 +1,4 @@
+import { cache } from "react";
 import {
   WPJob,
   WPJobsConnection,
@@ -24,6 +25,13 @@ const WORDPRESS_GRAPHQL_URL =
   process.env.WORDPRESS_GRAPHQL_URL ||
   process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL ||
   "https://wordpress.careercvpro.tredique.com/graphql";
+
+// How long job data from WordPress is reused before it's fetched again.
+// WordPress takes several seconds per request, so fetching on every page view
+// made job pages take around 9 s to start loading. New and edited jobs show up
+// within this many seconds. The job pages' `revalidate` exports use the same
+// number (Next needs those written out as literals).
+const JOBS_REVALIDATE_SECONDS = 300;
 
 // ============================================
 // GraphQL Client
@@ -458,9 +466,9 @@ function transformWPCategoriesToJobCategories(
 // ============================================
 
 /**
- * Fetch all jobs from WordPress
- * Uses no-cache to always get fresh job listings, unless `revalidate` (seconds)
- * is given, in which case the response is cached for that long.
+ * Fetch all jobs from WordPress.
+ * The response is cached for JOBS_REVALIDATE_SECONDS unless `revalidate`
+ * (seconds) is given.
  */
 export async function getAllJobs(
   pagination?: PaginationParams,
@@ -472,9 +480,10 @@ export async function getAllJobs(
       first: pagination?.first || 100,
       after: pagination?.after || null,
     },
-    options.revalidate !== undefined
-      ? { revalidate: options.revalidate, tags: ["jobs"] }
-      : { noCache: true, tags: ["jobs"] }
+    {
+      revalidate: options.revalidate ?? JOBS_REVALIDATE_SECONDS,
+      tags: ["jobs"],
+    }
   );
 
   return {
@@ -582,19 +591,21 @@ export async function getAllJobSitemapEntries(
 }
 
 /**
- * Fetch a single job by slug
- * Uses no-cache to always get fresh job data
+ * Fetch a single job by slug. Returns null when WordPress has no such job and
+ * throws when WordPress can't be reached.
+ * Wrapped in React's cache() so a job page's metadata and body share one
+ * request: Next doesn't merge identical POST requests on its own.
  */
-export async function getJobBySlug(slug: string): Promise<Job | null> {
+export const getJobBySlug = cache(async (slug: string): Promise<Job | null> => {
   const data = await fetchGraphQL<GetJobResponse>(
     GET_JOB_BY_SLUG,
     { slug },
-    { noCache: true, tags: ["jobs", `job-${slug}`] }
+    { revalidate: JOBS_REVALIDATE_SECONDS, tags: ["jobs", `job-${slug}`] }
   );
 
   if (!data.job) return null;
   return transformWPJobToJob(data.job);
-}
+});
 
 /**
  * Fetch all provinces with their cities

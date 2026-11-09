@@ -169,7 +169,9 @@ export default function JobDetailPageClient({
                 )}
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5" />
-                  <span>
+                  {/* The page may be served from a cache a few minutes old,
+                      so the browser can work out a different age. */}
+                  <span suppressHydrationWarning>
                     Posted{" "}
                     {daysAgo === 0
                       ? "today"

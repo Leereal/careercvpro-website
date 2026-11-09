@@ -120,7 +120,9 @@ export function JobCard({ job }: JobCardProps) {
         )}
         <div className="flex items-center gap-1">
           <Clock className="h-4 w-4" />
-          <span>
+          {/* The page may be served from a cache a few minutes old, so the
+              browser can work out a different age; that's expected. */}
+          <span suppressHydrationWarning>
             {daysAgo === 0
               ? "Today"
               : daysAgo === 1

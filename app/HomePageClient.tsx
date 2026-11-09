@@ -583,7 +583,11 @@ export default function HomePageClient({ jobs }: HomePageClientProps) {
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <span className="text-xs text-muted-foreground flex items-center gap-1">
                         <Clock className="h-3 w-3" />
-                        {formatPostedDate(job.postedDate)}
+                        {/* The page may be served from a cache a few minutes
+                            old, so the browser can work out a different age. */}
+                        <span suppressHydrationWarning>
+                          {formatPostedDate(job.postedDate)}
+                        </span>
                       </span>
                       <span className="text-sm text-brand-teal font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                         View Job

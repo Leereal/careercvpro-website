@@ -22,9 +22,11 @@ import {
 } from "@/lib/pseo-content";
 import { provinceData, cityData } from "@/lib/job-locations";
 
-// Force dynamic rendering - always fetch fresh job data
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// Each page is built the first time someone visits it, then served from cache
+// and rebuilt in the background at most every 5 minutes (JOBS_REVALIDATE_SECONDS
+// in lib/wordpress.ts). Before this, every visit waited on WordPress, about 9 s
+// per job page. If a rebuild fails, Next keeps serving the last good copy.
+export const revalidate = 300;
 
 // Category names for display
 const categoryNames: Record<string, string> = {
@@ -100,59 +102,12 @@ function parseCategoryLocationSlug(slug: string): {
   return { category, categoryName, location, locationName };
 }
 
-// Generate static params for provinces, cities, and category+location combos
+// Build no pages at deploy time; each one is built on its first visit and then
+// cached (see `revalidate` above). Building all ~800 job, city and category
+// pages at once would send thousands of requests to WordPress in a few
+// minutes, which is enough to take it down.
 export async function generateStaticParams() {
-  // Province pages
-  const provinceParams = Object.keys(provinceData).map((slug) => ({ slug }));
-
-  // City pages (Phase 2)
-  const cityParams = Object.keys(cityData).map((slug) => ({ slug }));
-
-  // Category + Location combo pages (Phase 1 - Section 9)
-  // Start with top categories and all provinces/major cities
-  const topCategories = [
-    "security",
-    "retail",
-    "call-centre",
-    "admin",
-    "it",
-    "driving",
-    "government",
-    "internship",
-    "learnership",
-  ];
-  const topLocations = [
-    ...Object.keys(provinceData),
-    "johannesburg",
-    "pretoria",
-    "cape-town",
-    "durban",
-    "port-elizabeth",
-    "bloemfontein",
-  ];
-
-  const categoryLocationParams: { slug: string }[] = [];
-  for (const category of topCategories) {
-    for (const location of topLocations) {
-      categoryLocationParams.push({ slug: `${category}-jobs-in-${location}` });
-    }
-  }
-
-  // Also try to fetch job slugs from WordPress for static generation
-  try {
-    const { getAllJobSlugs } = await import("@/lib/wordpress");
-    const jobSlugs = await getAllJobSlugs();
-    const jobParams = jobSlugs.map((slug) => ({ slug }));
-    return [
-      ...provinceParams,
-      ...cityParams,
-      ...categoryLocationParams,
-      ...jobParams,
-    ];
-  } catch {
-    // If WordPress is unavailable, return static params
-    return [...provinceParams, ...cityParams, ...categoryLocationParams];
-  }
+  return [];
 }
 
 // Generate metadata
@@ -335,13 +290,10 @@ export default async function SlugPage({
     const { category, categoryName, location, locationName } = categoryLocation;
     const content = getCategoryLocationContent(category, location);
 
-    // Fetch jobs matching both category and location
-    let jobs: Job[] = [];
-    try {
-      jobs = await getJobsByLocationAndCategory(location, category, 100);
-    } catch (error) {
-      console.error("Failed to fetch jobs:", error);
-    }
+    // Fetch jobs matching both category and location. A WordPress error is
+    // left to throw (here and below) so it isn't cached as an empty page or a
+    // 404: Next keeps serving the last good copy instead.
+    const jobs = await getJobsByLocationAndCategory(location, category, 100);
 
     // Hide empty pages - return 404 if no jobs found
     if (jobs.length === 0) {
@@ -368,12 +320,7 @@ export default async function SlugPage({
     const content = getCityContent(slug);
 
     // Fetch jobs from WordPress for this city
-    let jobs: Job[] = [];
-    try {
-      jobs = await getJobsByLocation(slug, 100);
-    } catch (error) {
-      console.error("Failed to fetch jobs from WordPress:", error);
-    }
+    const jobs = await getJobsByLocation(slug, 100);
 
     // Hide empty city pages - return 404 if no jobs found
     if (jobs.length === 0) {
@@ -399,13 +346,7 @@ export default async function SlugPage({
     const data = provinceData[slug];
 
     // Fetch jobs from WordPress
-    let jobs: Job[] = [];
-    try {
-      jobs = await getJobsByLocation(slug, 100);
-    } catch (error) {
-      console.error("Failed to fetch jobs from WordPress:", error);
-      // Jobs will be empty, client can show "no jobs" state
-    }
+    const jobs = await getJobsByLocation(slug, 100);
 
     return (
       <ProvincePageClient
@@ -419,37 +360,33 @@ export default async function SlugPage({
     );
   }
 
-  // Otherwise, try to fetch job detail from WordPress
-  try {
-    const job = await getJobBySlug(slug);
-    if (job) {
-      // Fetch related jobs (same category or province)
-      let relatedJobs: Job[] = [];
-      try {
-        const { jobs: allJobs } = await getAllJobs({ first: 20 });
-        relatedJobs = allJobs
-          .filter(
-            (j) =>
-              j.id !== job.id &&
-              (j.category === job.category || j.province === job.province)
-          )
-          .slice(0, 3);
-      } catch {
-        // Related jobs are optional
-      }
-
-      return (
-        <>
-          <JobPostingSchema job={job} />
-          <JobBreadcrumbSchema job={job} />
-          <JobDetailPageClient job={job} relatedJobs={relatedJobs} />
-        </>
-      );
-    }
-  } catch (error) {
-    console.error("Failed to fetch job from WordPress:", error);
+  // Otherwise it should be a job. 404 only when WordPress says the job doesn't
+  // exist; a WordPress error throws instead.
+  const job = await getJobBySlug(slug);
+  if (!job) {
+    notFound();
   }
 
-  // If neither province nor valid job, show 404
-  notFound();
+  // Fetch related jobs (same category or province)
+  let relatedJobs: Job[] = [];
+  try {
+    const { jobs: allJobs } = await getAllJobs({ first: 20 });
+    relatedJobs = allJobs
+      .filter(
+        (j) =>
+          j.id !== job.id &&
+          (j.category === job.category || j.province === job.province)
+      )
+      .slice(0, 3);
+  } catch {
+    // Related jobs are optional
+  }
+
+  return (
+    <>
+      <JobPostingSchema job={job} />
+      <JobBreadcrumbSchema job={job} />
+      <JobDetailPageClient job={job} relatedJobs={relatedJobs} />
+    </>
+  );
 }
